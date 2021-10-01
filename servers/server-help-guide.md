@@ -2,9 +2,9 @@
 title: Server help guide
 description: This page is intended to help with common issues with the server.
 published: true
-date: 2020-11-30T10:00:29.563Z
-tags: 
-editor: undefined
+date: 2021-10-01T10:54:52.495Z
+tags: servers, server
+editor: markdown
 ---
 
 # Server help guide
@@ -34,6 +34,27 @@ sudo docker rm $IMPORTANT_CONTAINER
 
 **Q:** Gitlab is running out of space?
 **A:** There exists multiple commands to clean gitlab like: ```sudo gitlab-ctl registry-garbage-collect -m ``` simply run it on the gitlab server. Try googleing others as it might be some other garbage that need cleaned.
+
+**Q:** Gitlab is running out of space because of /var (See this in Gitlab -> Admin Area -> Monitoring -> System Info). Might show up as this error when pushing to the remote 
+```bash
+remote: /opt/gitlab/embedded/service/gitaly-ruby/gitlab-shell/lib/gitlab_logger.rb:84:in `write': No space left on device @ io_write - /var/log/gitlab/gitaly/gitlab-shell.log (Errno::ENOSPC)
+remote: 	from /opt/gitlab/embedded/service/gitaly-ruby/gitlab-shell/lib/gitlab_logger.rb:84:in `print'
+remote: 	from /opt/gitlab/embedded/service/gitaly-ruby/gitlab-shell/lib/gitlab_logger.rb:84:in `log_at'
+remote: 	from /opt/gitlab/embedded/service/gitaly-ruby/gitlab-shell/lib/gitlab_logger.rb:52:in `info'
+remote: 	from /opt/gitlab/embedded/service/gitaly-ruby/gitlab-shell/lib/http_helper.rb:82:in `request'
+remote: 	from /opt/gitlab/embedded/service/gitaly-ruby/gitlab-shell/lib/http_helper.rb:100:in `post'
+remote: 	from /opt/gitlab/embedded/service/gitaly-ruby/gitlab-shell/lib/gitlab_net.rb:31:in `check_access'
+remote: 	from /opt/gitlab/embedded/service/gitaly-ruby/gitlab-shell/lib/gitlab_access.rb:24:in `block in exec'
+remote: 	from /opt/gitlab/embedded/service/gitaly-ruby/gitlab-shell/lib/gitlab_metrics.rb:50:in `measure'
+remote: 	from /opt/gitlab/embedded/service/gitaly-ruby/gitlab-shell/lib/gitlab_access.rb:23:in `exec'
+remote: 	from /opt/gitlab/embedded/service/gitaly-ruby/gitlab-shell/hooks/pre-receive:26:in `<main>'
+To daisy-git.cs.aau.dk:astep-2021/tnn-creator-service.git
+ ! [remote rejected] dev -> dev (pre-receive hook declined)
+error: failed to push some refs to 'daisy-git.cs.aau.dk:$REPONAME'
+```
+
+**A:** 
+SSH into the daisy-git server, change user to root `'sudo su'` and run the command `cat /dev/null > /var/mail/root` to override the root file in the /var/mail directory, as this file has a tendency to get very large
 
 ## Kubernetes
 
