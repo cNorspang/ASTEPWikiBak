@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="233px" preserveAspectRatio="none" style="width:434px;height:233px;" version="1.1" viewBox="0 0 434 233" width="434px" zoomAndPan="magnify"><defs><filter height="300%" id="f2ehz1rsd4mi" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--entity ui--><rect fill="#FFFFFF" filter="url(#f2ehz1rsd4mi)" height="52.5938" style="stroke: #000000; stroke-width: 1.5;" width="116" x="35" y="16"/><rect fill="#FFFFFF" height="5" style="stroke: #000000; stroke-width: 1.5;" width="10" x="30" y="21"/><rect fill="#FFFFFF" height="5" style="stroke: #000000; stroke-width: 1.5;" width="10" x="30" y="58.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="96" x="45" y="38.9951">User Interface</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="50" x="45" y="55.292">Service</text><!--entity nb--><rect fill="#FFFFFF" filter="url(#f2ehz1rsd4mi)" height="68.8906" style="stroke: #000000; stroke-width: 1.5;" width="88" x="335" y="8"/><rect fill="#FFFFFF" height="5" style="stroke: #000000; stroke-width: 1.5;" width="10" x="330" y="13"/><rect fill="#FFFFFF" height="5" style="stroke: #000000; stroke-width: 1.5;" width="10" x="330" y="66.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="68" x="345" y="30.9951">Notebook</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="50" x="345" y="47.292">Service</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="50" x="345" y="63.5889">Service</text><!--entity a--><rect fill="#FFFFFF" filter="url(#f2ehz1rsd4mi)" height="68.8906" style="stroke: #000000; stroke-width: 1.5;" width="70" x="6" y="154"/><rect fill="#FFFFFF" height="5" style="stroke: #000000; stroke-width: 1.5;" width="10" x="1" y="159"/><rect fill="#FFFFFF" height="5" style="stroke: #000000; stroke-width: 1.5;" width="10" x="1" y="212.8906"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="16" y="176.9951">Tool A</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="50" x="16" y="193.292">Service</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="50" x="16" y="209.5889">Service</text><!--entity b--><rect fill="#FFFFFF" filter="url(#f2ehz1rsd4mi)" height="52.5938" style="stroke: #000000; stroke-width: 1.5;" width="70" x="111" y="162"/><rect fill="#FFFFFF" height="5" style="stroke: #000000; stroke-width: 1.5;" width="10" x="106" y="167"/><rect fill="#FFFFFF" height="5" style="stroke: #000000; stroke-width: 1.5;" width="10" x="106" y="204.5938"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="44" x="121" y="184.9951">Tool B</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="50" x="121" y="201.292">Service</text><!--link ui to nb--><path d="M151.2211,42.5 C205.6082,42.5 285.6018,42.5 334.8874,42.5 " fill="none" id="ui-nb" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="147" x="169.5" y="20.5669">Gets the different tools</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="123" x="181.5" y="35.6997">and entered values</text><!--link ui to a--><path d="M63.4093,69.2413 C53.693,79.9158 44.0871,92.9992 39,107 C33.6349,121.766 33.2984,139.0494 34.6383,153.8911 " fill="none" id="ui-a" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="62" x="40" y="120.0669">get /fields</text><!--link ui to b--><path d="M102.721,69.2787 C112.2839,95.6218 126.799,135.6068 136.3406,161.8911 " fill="none" id="ui-b" style="stroke: #000000; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="62" x="122" y="120.0669">get /fields</text><!--
+@startuml
+skinparam backgroundColor transparent
+skinparam componentBackgroundColor white
+skinparam componentBorderColor black
+skinparam arrowColor black
+component "User Interface\nService" as ui
+component "Notebook\nService\nService" as nb
+component "Tool A\nService\nService" as a
+component "Tool B\nService" as b
+
+ui -r- nb : Gets the different tools\nand entered values
+ui - - a : get /fields
+ui - - b : get /fields
+@enduml
+
+PlantUML version 1.2017.15(Mon Jul 03 18:45:34 CEST 2017)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.5+10-post-Ubuntu-0ubuntu1.118.04
+Operating System: Linux
+OS Version: 4.15.0-76-generic
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

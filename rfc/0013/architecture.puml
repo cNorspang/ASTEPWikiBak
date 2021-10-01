@@ -1,0 +1,103 @@
+@startuml
+skinparam backgroundColor transparent
+skinparam componentBackgroundColor white
+skinparam componentBorderColor black
+skinparam arrowColor black
+component "User Interface\nService" as ui
+component "Notebook\nService\nService" as nb
+component "Tool A\nService\nService" as a
+component "Tool B\nService" as b
+
+ui -r- nb : Gets the different tools\nand entered values
+ui -- a : get /fields
+ui -- b : get /fields
+@enduml
+
+@startuml
+title Opening a notebook
+skinparam backgroundColor transparent
+skinparam componentBackgroundColor white
+skinparam componentBorderColor black
+skinparam participantBackgroundColor white
+skinparam participantBorderColor black
+skinparam actorBackgroundColor white
+skinparam actorBorderColor black
+skinparam databaseBackgroundColor white
+skinparam databaseBorderColor black
+skinparam monochrome true
+skinparam arrowColor black
+actor User as user
+participant "User Interface\nService" as ui
+participant "Notebook\nService" as nb
+participant "Tool A\nService" as a
+participant "DB Resolver\nService" as dbr
+database "Databases" as db
+
+user -> ui : Open notebook
+ui -> nb : Request notebook
+nb -> dbr : Request tools and values
+dbr -> db : Query
+db -> dbr :
+dbr -> nb : Return tools and values
+nb -> a : get /fields
+a -> nb
+nb -> ui : Return tools with filled fields
+ui -> user : Show nb
+@enduml
+
+@startuml
+title Adding a new tool
+skinparam backgroundColor transparent
+skinparam componentBackgroundColor white
+skinparam componentBorderColor black
+skinparam participantBackgroundColor white
+skinparam participantBorderColor black
+skinparam actorBackgroundColor white
+skinparam actorBorderColor black
+skinparam databaseBackgroundColor white
+skinparam databaseBorderColor black
+skinparam monochrome true
+skinparam arrowColor black
+actor User as user
+participant "User Interface\nService" as ui
+participant "Service Fetcher\nService" as sf
+participant "Tool A\nService" as a
+
+user -> ui : Add new tool
+ui -> sf : Request all tool services
+sf -> ui :
+ui -> user : Show available tools
+user -> ui : Select tool A
+ui -> a : Get /fields
+a -> ui :
+ui -> user : Show new tool in notebook
+@enduml
+
+@startuml
+title Saving a notebook
+skinparam backgroundColor transparent
+skinparam componentBackgroundColor white
+skinparam componentBorderColor black
+skinparam participantBackgroundColor white
+skinparam participantBorderColor black
+skinparam actorBackgroundColor white
+skinparam actorBorderColor black
+skinparam databaseBackgroundColor white
+skinparam databaseBorderColor black
+skinparam monochrome true
+skinparam arrowColor black
+actor User as user
+participant "User Interface\nService" as ui
+participant "Notebook\nService" as nb
+participant "DB Resolver\nService" as dbr
+database "Databases" as db
+
+user -> ui : Save notebook
+ui -> nb : Send filled fields
+nb -> dbr : Update notebook
+dbr -> db : Update
+db -> dbr
+dbr -> nb
+nb -> ui
+ui -> user : Display "saved"
+@enduml

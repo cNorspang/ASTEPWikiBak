@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="charset" content="utf8">
+        <title>0013 Interface</title>
+        <style>
+        selector {
+            display: block;
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+        }
+        tool {
+            display: block;
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            justify-content: center;
+            text-align: center;
+        }
+        options {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        option {
+            display: block;
+            grid-column: span 2;
+            padding: 5px;
+            height: 25px;
+        }
+        render {
+            display: none;
+            border-color: darkgreen;
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+        }
+        #addButton {
+            margin: 10px;
+        }
+        sidebar {
+            position: fixed;
+            float: left;
+            display: block;
+            width: 20%;
+            height: 100vh;
+            background-color: grey;
+            padding: 10px;
+        }
+        mainview {
+            display: block;
+            float: right;
+            width: 75%;
+        }
+        body {
+            margin: 0px;
+        }
+        .sidebar-button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        tooltitle {
+            font-weight: bold;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        </style>
+    </head>
+    <body>
+        <sidebar>
+            <button class="sidebar-button" onclick="addTool('Route Fitter')">Route Fitter</button>
+            <button class="sidebar-button" onclick="addTool('Time Series Analyzer')">Time Series Analyzer</button>
+            <button class="sidebar-button" onclick="addTool('Raw Data Paste-in')">Raw Data Paste-in</button>
+        </sidebar>
+        <mainview>
+            <button id="addButton" onclick="showSelector()">Add Tool</button>
+            <selector id="selector" style="border-style: solid; visibility: hidden;">
+                <button onclick="addTool('Route Fitter')">Route Fitter</button>
+                <button onclick="addTool('Time Series Analyzer')">Time Series Analyzer</button>
+                <button onclick="addTool('Raw Data Paste-in')">Raw Data Paste-in</button>
+            </selector>
+        </mainview>
+        <script>
+        var index = 0;
+        var selector = document.getElementById('selector');
+        var addButton = document.getElementById('addButton');
+        function addTool(tool) {
+            index += 1;
+            selector.style.visibility = 'hidden';
+            addButton.insertAdjacentHTML('beforebegin', `
+            <tool>
+                <tooltitle>${tool}</tooltitle><button style="inline-block" onclick="render('${index}')">Generate</button>
+                <options>
+                    <option>Option A:<input type="text" /></option>
+                    <option>Option B:<input type="text" /></option>
+                    <option>Option C:<input type="text" /></option>
+                    <option>Option D:<input type="text" /></option>
+                </options>
+                <render id="${index}-render">
+                The output graphs would go here.
+                </render>
+            </tool>
+            `);
+        }
+        function showSelector() {
+            selector.style.visibility = 'visible';
+        }
+        function render(tool) {
+            document.getElementById(`${tool}-render`).style.display = 'block';
+        }
+        </script>
+    </body>
+</html>
