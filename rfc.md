@@ -2,7 +2,7 @@
 title: Request for Comments (RFC)
 description: Overview and Guideline
 published: true
-date: 2021-10-01T15:16:21.137Z
+date: 2021-10-25T17:24:13.882Z
 tags: rfc, request, for, comments, change
 editor: markdown
 ---
@@ -20,7 +20,7 @@ The RFC's present the standard which every student working on aSTEP should follo
 
 | RFC Number| Title| Summary | Year |Status
 |-------|:-:|:-----|---------|:-----|------
-| [RFC0019](/rfc/0019)  | Cooperation | RFC0019 outlines how the current aSTEP groups have chosen to cooperate together | 2021| **Pending**
+| [RFC0019](/rfc/0019)  | Cooperation | RFC0019 outlines how the current aSTEP groups have chosen to cooperate together | 2021| **Accepted**
 | [RFC0015](/rfc/0015)  | Interface of Microservices | RFC0015 outlines the addition of 2 endpoints to microservices, `/data` and `/combined`  | 2020 Spring | **Accepted**
 | [RFC0014](/rfc/0014)  | Documentation Style				     				 								| RFC0014 outlines the creation of this wiki for documentation | 2020 Spring | **Accepted**
 | [RFC0008](/rfc/0008)  | Service Documentation | RFC 0008 outlines how services should return their README documentation | 2019 | **Accepted**
