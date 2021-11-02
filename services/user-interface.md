@@ -2,9 +2,9 @@
 title: User Interface
 description: The "User Interface" is the service for the entire aSTEP website.
 published: true
-date: 2020-12-07T11:32:41.503Z
-tags: 
-editor: undefined
+date: 2021-11-02T09:27:40.453Z
+tags: service, user_interface, ui
+editor: markdown
 ---
 
 # User Interface
@@ -93,7 +93,7 @@ There are two ways of running the UI locally: using Node.js or using Docker. If 
 
 *NOTE: We recommend you use Node.js due to these exact pros/cons and also due to the fact that you need a little "hack" to get the UI working in Docker. However, if you can build and run the Docker image, the UI is also likely going to deploy correctly on aSTEP (since the `Dockerfile` itself performs some tests, "lint", on the source code which Node.js does not).*
 
-Before anything, you should clone the UI project repository from the GitLab group called "aSTEP-2020 (spring)" to your computer (see [this guide](/gitlab#connecting-a-git-client-to-gitlab) from the GitLab documentation to get started).
+Before anything, you should clone the UI project repository from the GitLab group called "aSTEP-2020 (spring)"[^1] to your computer (see [this guide](/gitlab#connecting-a-git-client-to-gitlab) from the GitLab documentation to get started).
 
 ### Using Node.js
 
@@ -242,3 +242,6 @@ The spring 2017 semester looked at all the work from spring 2016, chanted *yeetu
 ### Spring 2016
 
 The spring 2016 semester definately had something graphical, but we don't know if this was a central UI as it is today.
+
+[^1]: This seem to be wrong. Should be "aSTEP-2020 *(fall)*"
+
