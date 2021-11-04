@@ -2,7 +2,7 @@
 title: TNM Combiner WeightCombiner
 description: 
 published: true
-date: 2021-11-04T12:47:09.581Z
+date: 2021-11-04T12:47:34.328Z
 tags: tnm
 editor: markdown
 ---
@@ -20,7 +20,7 @@ for more information check the [WeightCombiner documentation](https://daisy-git.
   
   Where:
   - $W_{r}$ is the combined weight of the _node_ or _edge_, $i$.
-  - $W_i$ is the weight on the current _node_ or _edge_, $i$.
+  - $W_i$ is the weight on the current _node_ or _edge_.
   	- Where $0 \le W_i \le 1$
   - $P_i$ is the priority of the current model, given by the user.
   	- Where $0 \le P_x \le 1$ and $\sum_{i = 1}^{n} P_i = 1$
