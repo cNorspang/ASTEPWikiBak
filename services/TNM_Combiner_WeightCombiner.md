@@ -2,7 +2,7 @@
 title: TNM Combiner WeightCombiner
 description: 
 published: true
-date: 2021-11-04T12:47:34.328Z
+date: 2021-11-04T12:51:52.404Z
 tags: tnm
 editor: markdown
 ---
@@ -12,14 +12,13 @@ The **TNM combiner** takes a list of "_Microservices_", each containing informat
 
 for more information check the [WeightCombiner documentation](https://daisy-git.cs.aau.dk/astep-2021/astep-6/-/wikis/home).
 
-**Calculation**
+**Weight Equation**
  The weights on _nodes_ and _edges_ are combined using the following equation: 
-  
   
   $$W_{r} = \sum_{i=1}^{n}W_{i}P_{i}$$
   
   Where:
-  - $W_{r}$ is the combined weight of the _node_ or _edge_, $i$.
+  - $W_{r}$ is the combined weight of the _node_ or _edge_.
   - $W_i$ is the weight on the current _node_ or _edge_.
   	- Where $0 \le W_i \le 1$
   - $P_i$ is the priority of the current model, given by the user.
