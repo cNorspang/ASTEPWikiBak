@@ -2,7 +2,7 @@
 title: TNM Combiner WeightCombiner
 description: 
 published: true
-date: 2021-11-04T10:38:42.905Z
+date: 2021-11-04T11:17:24.231Z
 tags: tnm
 editor: markdown
 ---
