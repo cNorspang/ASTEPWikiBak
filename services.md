@@ -2,9 +2,9 @@
 title: Services
 description: This page lists the documentation pages for the aSTEP services, as well as code libraries used by these services.
 published: true
-date: 2020-12-16T15:08:02.592Z
+date: 2021-11-04T09:40:40.958Z
 tags: 
-editor: undefined
+editor: markdown
 ---
 
 # Services
@@ -23,6 +23,9 @@ Service names are followed by their year of creation enclosed in parentheses. Th
 - [Socket Service](socket-service) (2019)
 
 ## Categories
+
+### Transportation Network (RFC 0020)
+- [WeightCombiner](/services/TNM_/services/TNM_Combiner_WeightCombiner) (2021)
 
 ### Path Analytics
 - [Attribute Prediction](attribute-prediction) (2020 Spring)
