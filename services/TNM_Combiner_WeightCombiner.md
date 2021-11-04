@@ -2,7 +2,7 @@
 title: TNM Combiner WeightCombiner
 description: 
 published: true
-date: 2021-11-04T12:53:48.871Z
+date: 2021-11-04T12:57:13.053Z
 tags: tnm
 editor: markdown
 ---
@@ -10,9 +10,10 @@ editor: markdown
 # The TNM Combiner
 The **TNM combiner** takes a list of "_Microservices_", each containing information about the microservice, how the user prioritise the service and a _Transport Network Model_ (**TNM**) as input. The WeightCombiner combines the recieved models into a single model, accounting for the users preferences.
 
-for more information check the [WeightCombiner documentation](https://daisy-git.cs.aau.dk/astep-2021/astep-6/-/wikis/home).
+The code is available on [Gitlab](https://daisy-git.cs.aau.dk/astep-2021/astep-6).
 
 **Combined Weight Equation**
+
 The combined weight of each _node_ and _edge_ is calculated using the following equation: 
   
   $$W_{r} = \sum_{i=1}^{n}W_{i}P_{i}$$
