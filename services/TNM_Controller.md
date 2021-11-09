@@ -2,7 +2,7 @@
 title: TNM Controller
 description: xd
 published: true
-date: 2021-11-09T09:27:01.014Z
+date: 2021-11-09T09:39:30.985Z
 tags: 
 editor: markdown
 ---
@@ -43,7 +43,7 @@ Next a dropdown menu of the field type ([```select```](/user-interface/fields#se
 
 ### Visualise Result
 
-Once the user clicks "visualise results", it runs the "render()" function. 
+Once the user clicks "visualise results", it runs the *render()* function. 
 
 It retrieves user input, those being preferences for weighter services and the chosen router.
 
