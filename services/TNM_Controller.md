@@ -2,7 +2,7 @@
 title: TNM Controller
 description: xd
 published: true
-date: 2021-11-09T09:39:30.985Z
+date: 2021-11-09T09:41:47.325Z
 tags: 
 editor: markdown
 ---
@@ -37,9 +37,9 @@ for idx, routerName in enumerate(routerNames):
 
 ### UI creation
 
-The lists of weighterServices and routerServices are used to dynamically create UI. For each element in weighterServices a JSON object of the [field type ```input-number```](/user-interface/fields#numeric) was created with a label containing the name of the respective service. These fields are used to input the preference of weighter service.
+The lists of weighterServices and routerServices are used to dynamically create UI. For each element in weighterServices a JSON object of the **field type** [```input-number```](/user-interface/fields#numeric) was created with a label containing the name of the respective service. These fields are used to input the preference of weighter service.
 
-Next a dropdown menu of the field type ([```select```](/user-interface/fields#select(dropdown))) is created from routerServices. It is a dropdown menu, as it only makes sense to use a single routing method at one time. As before, for each element in routerServices an element is added to the dropdown menu. 
+Next a dropdown menu of the **field type** ([```select```](/user-interface/fields#select(dropdown))) is created from routerServices. It is a dropdown menu, as it only makes sense to use a single routing method at one time. As before, for each element in routerServices an element is added to the dropdown menu. 
 
 ### Visualise Result
 
@@ -47,7 +47,7 @@ Once the user clicks "visualise results", it runs the *render()* function.
 
 It retrieves user input, those being preferences for weighter services and the chosen router.
 
-It then validates the input, which involves the weighter preferences being positive (>-1) and summing to 1, and that chosen router is available.
+It then validates the input, which involves the weighter preferences being positive (>=0) and summing to 1, and that chosen router is available.
 
 It then retrieves the model from the **Creator** service, and uses multi-threading to send the model to all weighter services with a preference larger than 0. 
 
@@ -55,7 +55,7 @@ Once it receives all the models from the weighter services, it sends it to the *
 
 Once it receives the model from the **Combiner** service, it sends the model to the chosen router service.
 
-The result from the router service is sent to the UI.
+The result from the router service is sent to the **UI**.
 
 
 
