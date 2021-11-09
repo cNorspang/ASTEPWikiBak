@@ -2,7 +2,7 @@
 title: TNM Controller
 description: xd
 published: true
-date: 2021-11-09T09:26:22.513Z
+date: 2021-11-09T09:27:01.014Z
 tags: 
 editor: markdown
 ---
