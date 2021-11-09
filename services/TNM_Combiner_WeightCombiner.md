@@ -2,7 +2,7 @@
 title: TNM Combiner WeightCombiner
 description: 
 published: true
-date: 2021-11-09T11:40:55.932Z
+date: 2021-11-09T11:44:21.018Z
 tags: tnm
 editor: markdown
 ---
@@ -134,7 +134,7 @@ _Request type_:  **GET**
 
 _Path_: “/”
 
-#### Usage
+##### Usage
 Used to see if the server is running. Only used for debugging. 
 
 If the server is running the result will be as follows:
@@ -147,7 +147,7 @@ _Request type_:  **POST**
 
 _Path_: “/combine”
 
-#### Usage
+##### Usage
 The endpoint for combination expects a list of *microservice* (**MS**) objects within the request body. 
 
 The accepted input format can be seen [here](#input-format).
@@ -161,10 +161,9 @@ The generated **TNM** output can be seen [here](#output-format).
 _Request type_: **GET**
 _Path_: "/info"
 
-#### Usage
+##### Usage
 Used to get information about the service.
 
-The information is in the form of a redirect to the readme which is present on gitlab.
+The information is in the form of a redirect to the readme which is present on [GitLab](https://daisy-git.cs.aau.dk/astep-2021/astep-6/-/blob/master/README.md).
 
-The readme can also be found [here](https://daisy-git.cs.aau.dk/astep-2021/astep-6/-/blob/master/README.md).
 
