@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-11-10T18:38:52.487Z
+date: 2021-11-10T18:41:28.279Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -24,7 +24,8 @@ The database form the data background of the [Transport Network Model RFC0020](/
 
 The ER Diagram presented below describes the structure of the different entities in the transportation_network database. The concrete attributes and their meaning are defined in the [Tables](#tables) section.
 
-
+![finalerdatabase.png](/database/finalerdatabase.png)
+*The corresponding draw io file is available [here](/database/finalerdatabase.drawio)*
 
 ## Tables
 
