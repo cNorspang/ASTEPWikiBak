@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-11-10T19:24:52.133Z
+date: 2021-11-10T19:30:01.183Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -107,24 +107,30 @@ The table `segment` describes a segment of a road, which is between two intersec
 
 | **Column Name** | **Type** | Explanation                             |
 | --------------- | -------- | ----------------------------             |
-| base_attribs    | MULTI    | Read [base attributes](#base-attributes) |
-| from_id         | REFERENCE| Going from the ForeignKey to mileage_post|
-| to_id           | REFERENCE| Going to the ForeignKey to mileage_post  |
-| length          | INTEGER  | Length in meters, derived from mileage_posts |
-| type            | STRING   | ?     |
-| type_max_speed  | INTEGER   | ?     |
-| set_max_speed   | INTEGER   | ?     |
-| recommended_speed|INTEGER   | ?     |
-| one_way         | STRING   | ?     |
-| mean_speed      | INTEGER   | ?     |
-| daily_year      | INTEGER   | ?     |
-| daily_july      | INTEGER   | ?     |
-| daily_trucks    | INTEGER   | ?     |
-| daily_10_axle   | INTEGER   | ?     |
-| max_axle_load   | INTEGER   | Max accepted axle load    |
-| max_height      | INTEGER   | ?     |
-| max_length      | INTEGER   | ?     |
-| max_weight      | INTEGER   | ?     |
+| base_attribs    | MULTI     | Read [base attributes](#base-attributes) |
+| from_id         | REFERENCE | Going from the ForeignKey to mileage_post|
+| to_id           | REFERENCE | Going to the ForeignKey to mileage_post  |
+| length          | INTEGER   | Length in meters, derived from mileage_posts |
+| type            | STRING    | Designates the expected usage of the road   |
+| type_max_speed  | INTEGER   | Max speed as derived from the road type     |
+| set_max_speed   | INTEGER   | Max speed as set by the municipality        |
+| recommended_speed|INTEGER   | Recommended speed as set by the municipality|
+| one_way         | STRING    | Designates whether its a one-way street     |
+| mean_speed      | INTEGER   | The average mean speed on a day in a year  |
+| daily_year      | INTEGER   | The average vehicles on a day in a year     |
+| daily_july      | INTEGER   | The average vehicle on a day in july     |
+| daily_trucks    | INTEGER   | The average trucks on a day in a year     |
+| daily_10_axle   | INTEGER   | The avg. 10-axle vehicles on a day in a year |
+| max_axle_load   | DECIMAL   | Max accepted axle load of vehicle in tons    |
+| max_height      | DECIMAL   | Max accepted height of vehicle in meters     |
+| max_length      | DECIMAL   | Max accepted length of vehicle in meters     |
+| max_weight      | DECIMAL   | Max accepted weight of vehicle in tons       |
+
+The current segment types are:
+TO BE DONE
+
+The current one_way are:
+"with", "against", "none"
 
 ### mileage_post
 
