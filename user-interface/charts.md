@@ -2,9 +2,9 @@
 title: Chart types
 description: A list of all the charts available in the aSTEP user interface.
 published: true
-date: 2020-12-14T13:34:34.479Z
-tags: 
-editor: undefined
+date: 2021-11-10T08:06:54.824Z
+tags: user_interface, ui, chart
+editor: markdown
 ---
 
 # Chart Types
@@ -238,7 +238,7 @@ The value of `type` is a constant, which is required by the GeoJSON standard. If
 }
 ```
 
-The chart supports 4 geometry-types: *Point*, *MultiPoint*, *LineString*, and *MultiLineString*. The value-type of `coordinates` depends on the value of `type` as depicted below.
+The chart supports 4 geometry-types: *Point*, *MultiPoint*, *LineString*, and *MultiLineString*. The value-type of `coordinates` depends on the value of `type` as depicted below. Note, here a coordinate is just a list consisting of longitude and latitude, e.g. [5.5, 6.6], and not a dictionary, as was mentioned earlier (at least in Python). 
 
 ```json
 [coordinate]                     // "type": "Point"
