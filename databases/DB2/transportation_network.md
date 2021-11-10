@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-11-10T18:41:28.279Z
+date: 2021-11-10T19:24:52.133Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -27,6 +27,11 @@ The ER Diagram presented below describes the structure of the different entities
 ![finalerdatabase.png](/database/finalerdatabase.png)
 *The corresponding draw io file is available [here](/database/finalerdatabase.drawio)*
 
+Apart from following standard notation of DBS, there are these important additions to make a proper presentation of a spatial ER diagram.
+- The line in the bottom of each entity describes what type of geometric information it contains.
+- The extra square behind road, intersection and segment shows that these are temporal, and that their datapoint change over time.
+- Some information is not present (such as the with/against terminology / empty Notes). This is due to the fact that there is data of that kind available on [vejman.dk](http://www.vejman.dk/), but it hasn't yet been needed for extraction.
+
 ## Tables
 
 The database contains 5 tables:
@@ -37,51 +42,102 @@ The database contains 5 tables:
 - [`segment`](#segment)
 - [`mileage_post`](#mileage_post)
 
-Presently, all these are modelled as the only tables in the database, but since most of these entities are temporal, and have different data at different times, the inclusion of temporal tables such as Rules, Construction, etc. might be beneficial to expand on later if time allows it.
+>Presently, all tables only have the most recent datapoint, but since most have different data at different times, the inclusion of temporal data extension tables such as Rules, Construction, etc. might be beneficial to expand on later if time allows it.
+{.is-info}
 
-### node
+### base attributes
 
-The table `node` contains the nodes of the graph. These nodes represent intersections between roads in the road network.
+The `base attributes` are attributes shared between all the different entities, and primarily contains meta data. 
 
 | **Column Name** | **Type** | Explanation                  |
-| --------------- | -------- | ---------------------------- |
-| <u>node_id</u>  | INTEGER  | The node's unique identifier |
-| lon             | REAL     | The node's longitude         |
-| lat             | REAL     | The node's latitude          |
+| --------------- | --------  | ---------------------------- |
+| <u>id</u>       | INTEGER   | Unique identifier in the database  |
+| source          | STRING    | Describes the source of the data   |
+| source_id       | INTEGER   | Unique identier in the source      |
+| geom            | REFERENCE | Contains the geometry, created by postgis |
 
-### edge
+The current `sources` are:
+[vejman.dk](http://vejman.dk)
 
-The table `edge` contains the edges of the graph. These edges represent "road segments" which are streaches of road with no branches. That is, the roads between intesections.
+The `geom` attribute is created by the `postgis` extension of the `postgresql` database. It saves the 
 
-| **Column Name** | **Type**     | Explanation                                                  |
-| --------------- | ------------ | ------------------------------------------------------------ |
-| <u>edge_id</u>         | INTEGER      | The edge's unique identifier                                 |
-| edge_basenode→node   | INTEGER      | The node of the graph at which the edge starts.              |
-| distance        | REAL         | The length of the edge, measured in meters.                  |
-| edge_name       | VARCHAR(100) | Name of the road that the edge is a part of.                 |
-| highway         | VARCHAR(20)  | The type of road it is.                                      |
-| maxspeed        | VARCHAR(20)  | The registered maximum speed one is allowed to drive at on this edge. |
-| edge_adj→node        | INTEGER      | The node of the graph at which the edge ends.                |
+### municipality
 
-### edge_geometry
+The table `municipality` represents the administrative and regional entity that manages and contains all the road infrastructure.
 
-The table `edge_geometry` contains additional nodes describing how an edge should be drawn on a world map (more specifically, the [map-geo chart](/user-interface/charts#geographical-geometry)). Since only few road segments are completely straight, we use these elements to draw the edge so that it mimics the road's curvature. The database is currently (As of August 2020) sorted, so that the order of entries for each edge describe the order in which the points should be drawn and connected.
+| **Column Name** | **Type** | Explanation                             |
+| --------------- | -------- | ----------------------------             |
+| base_attribs    | MULTI    | Read [base attributes](#base-attributes) |
+| name            | STRING   | The daily-speak name of the municipality |
+| country         | STRING   | The daily-speak name of the country      |
 
-| **Column Name** | **Type** | Explanation                                    |
-| --------------- | -------- | ---------------------------------------------- |
-| edge_id         | INTEGER  | The edge which the geometry-element belongs to |
-| lon             | REAL     | The element's longitude                        |
-| lat             | REAL     | The element's latitude                         |
+The current municipalities are:
+Aalborg
 
-An example would be the edge with `edge_id = 960998`. It has the following 3 entries:
+The current countries are:
+Denmark
 
-|      | edge_id | lon              | lat              |
-| ---- | ------- | ---------------- | ---------------- |
-| 1    | 960998  | 11.1821853261184 | 55.600091008844  |
-| 2    | 960998  | 11.17775576959   | 55.600378787526  |
-| 3    | 960998  | 11.1774609128563 | 55.6003955513327 |
+### road
 
-This edge would be drawn as 1-2-3 on a world map, where the integers represent elements and the dashes represent the line-segements drawn between the element-coordinates.
+The table `road` represents a single unbroken road inside a municipality. The road contains all the [mileage_posts](#mileage_post) which runs along its path, and is the closest representation of what is present in [vejman.dk](http://vejman.dk).
 
-> NOTE: It is correct that this table has no primary or foreign keys.
-{.is-info}
+| **Column Name** | **Type** | Explanation                             |
+| --------------- | -------- | ----------------------------             |
+| base_attribs    | MULTI    | Read [base attributes](#base-attributes) |
+| municipality_id | REFERENCE| ForeignKey to municipality               |
+| name            | STRING   | The daily-speak name of the road         |
+| description     | STRING   | Describes the general path of the road   |
+
+### intersection
+
+The table `intersection` describes areas where two or more roads intersect. Intersections which have [mileage_posts](#mileage_post) from different municipalities signify the borders between the different municipalities.
+
+| **Column Name** | **Type** | Explanation                             |
+| --------------- | -------- | ----------------------------             |
+| base_attribs    | MULTI    | Read [base attributes](#base-attributes) |
+| type            | STRING   | The type of intersection |
+| signal_control  | BOOL     | Whether the intersection has signal control |
+
+The current intersections types are:
+TO BE DONE
+
+### segment
+
+The table `segment` describes a segment of a road, which is between two intersections. Attributes described as "with_attribute" designate that the attribute only counts for the side of the road going in the direction From -> To, whereas "against_attribute" designate the opposite direction.
+
+| **Column Name** | **Type** | Explanation                             |
+| --------------- | -------- | ----------------------------             |
+| base_attribs    | MULTI    | Read [base attributes](#base-attributes) |
+| from_id         | REFERENCE| Going from the ForeignKey to mileage_post|
+| to_id           | REFERENCE| Going to the ForeignKey to mileage_post  |
+| length          | INTEGER  | Length in meters, derived from mileage_posts |
+| type            | STRING   | ?     |
+| type_max_speed  | INTEGER   | ?     |
+| set_max_speed   | INTEGER   | ?     |
+| recommended_speed|INTEGER   | ?     |
+| one_way         | STRING   | ?     |
+| mean_speed      | INTEGER   | ?     |
+| daily_year      | INTEGER   | ?     |
+| daily_july      | INTEGER   | ?     |
+| daily_trucks    | INTEGER   | ?     |
+| daily_10_axle   | INTEGER   | ?     |
+| max_axle_load   | INTEGER   | Max accepted axle load    |
+| max_height      | INTEGER   | ?     |
+| max_length      | INTEGER   | ?     |
+| max_weight      | INTEGER   | ?     |
+
+### mileage_post
+
+The table `mileage_post` describes the mileage posts ('kilometreringspæle' in danish) which is alongside the road.
+
+| **Column Name** | **Type** | Explanation                             |
+| --------------- | -------- | ----------------------------             |
+| base_attribs    | MULTI   | Read [base attributes](#base-attributes) |
+| road_id         | REFERENCE| ForeignKey to road                      |
+| intersection_id | REFERENCE| ForeignKey to intersection               |
+| mileage         | INTEGER | How far up the road the mileage post is in meters |
+
+## How to add / change data
+
+In the [TNM Creator Microservice](/services/TNM_Creator_Genesis), a specific folder called `vejman` is responsible for how the database has been setup.
+In the folder, a jupyter notebook file called `model_maker` can be run to setup the database from scratch, if any problems are encountered, or data is corrupted.
