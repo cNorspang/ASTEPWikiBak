@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-11-10T19:30:01.183Z
+date: 2021-11-10T19:35:14.001Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -42,6 +42,10 @@ The database contains 5 tables:
 - [`segment`](#segment)
 - [`mileage_post`](#mileage_post)
 
+The datatypes should be self explanatory, however, there are two exceptions.
+- The MULTI data type references the fact that [base attributes](#base-atributes) are only being described ones, despite the fact that all entities have them.
+- The ENUM data type is just a simple STRING datatype, with the added caveat that there is a condition as to what values the string can be, described below the given table.
+
 >Presently, all tables only have the most recent datapoint, but since most have different data at different times, the inclusion of temporal data extension tables such as Rules, Construction, etc. might be beneficial to expand on later if time allows it.
 {.is-info}
 
@@ -52,14 +56,14 @@ The `base attributes` are attributes shared between all the different entities, 
 | **Column Name** | **Type** | Explanation                  |
 | --------------- | --------  | ---------------------------- |
 | <u>id</u>       | INTEGER   | Unique identifier in the database  |
-| source          | STRING    | Describes the source of the data   |
+| source          | ENUM      | Describes the source of the data   |
 | source_id       | INTEGER   | Unique identier in the source      |
 | geom            | REFERENCE | Contains the geometry, created by postgis |
 
 The current `sources` are:
 [vejman.dk](http://vejman.dk)
 
-The `geom` attribute is created by the `postgis` extension of the `postgresql` database. It saves the 
+The `geom` attribute is created by the `postgis` extension of the `postgresql` database, and makes it possible to save spatial data.
 
 ### municipality
 
@@ -68,8 +72,8 @@ The table `municipality` represents the administrative and regional entity that 
 | **Column Name** | **Type** | Explanation                             |
 | --------------- | -------- | ----------------------------             |
 | base_attribs    | MULTI    | Read [base attributes](#base-attributes) |
-| name            | STRING   | The daily-speak name of the municipality |
-| country         | STRING   | The daily-speak name of the country      |
+| name            | ENUM     | The daily-speak name of the municipality |
+| country         | ENUM     | The daily-speak name of the country      |
 
 The current municipalities are:
 Aalborg
@@ -95,10 +99,10 @@ The table `intersection` describes areas where two or more roads intersect. Inte
 | **Column Name** | **Type** | Explanation                             |
 | --------------- | -------- | ----------------------------             |
 | base_attribs    | MULTI    | Read [base attributes](#base-attributes) |
-| type            | STRING   | The type of intersection |
+| type            | ENUM     | The type of intersection |
 | signal_control  | BOOL     | Whether the intersection has signal control |
 
-The current intersections types are:
+The current intersections type values are:
 TO BE DONE
 
 ### segment
@@ -111,11 +115,11 @@ The table `segment` describes a segment of a road, which is between two intersec
 | from_id         | REFERENCE | Going from the ForeignKey to mileage_post|
 | to_id           | REFERENCE | Going to the ForeignKey to mileage_post  |
 | length          | INTEGER   | Length in meters, derived from mileage_posts |
-| type            | STRING    | Designates the expected usage of the road   |
+| type            | ENUM      | Designates the expected usage of the road   |
 | type_max_speed  | INTEGER   | Max speed as derived from the road type     |
 | set_max_speed   | INTEGER   | Max speed as set by the municipality        |
 | recommended_speed|INTEGER   | Recommended speed as set by the municipality|
-| one_way         | STRING    | Designates whether its a one-way street     |
+| one_way         | ENUM      | Designates whether its a one-way street     |
 | mean_speed      | INTEGER   | The average mean speed on a day in a year  |
 | daily_year      | INTEGER   | The average vehicles on a day in a year     |
 | daily_july      | INTEGER   | The average vehicle on a day in july     |
@@ -126,10 +130,10 @@ The table `segment` describes a segment of a road, which is between two intersec
 | max_length      | DECIMAL   | Max accepted length of vehicle in meters     |
 | max_weight      | DECIMAL   | Max accepted weight of vehicle in tons       |
 
-The current segment types are:
+The current segment type values are:
 TO BE DONE
 
-The current one_way are:
+The current one_way values are:
 "with", "against", "none"
 
 ### mileage_post
