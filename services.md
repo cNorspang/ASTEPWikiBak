@@ -2,7 +2,7 @@
 title: Services
 description: This page lists the documentation pages for the aSTEP services, as well as code libraries used by these services.
 published: true
-date: 2021-11-09T08:36:49.327Z
+date: 2021-11-11T11:11:27.295Z
 tags: 
 editor: markdown
 ---
@@ -26,9 +26,11 @@ Service names are followed by their year of creation enclosed in parentheses. Th
 
 ### Transportation Network (RFC 0020)
 - [Creator](/services/TNM_Creator_Genesis) (2021)
-- [WeightCombiner](/services/TNM_Combiner_WeightCombiner) (2021)
 - [Controller](/en/services/TNM_Controller) (2021)
-- [WeightFuelConsumption](/services/TNM_Weighter_FuelConsumption) (2021)
+- [CombinerWeights](/services/TNM_Combiner_WeightCombiner) (2021)
+- [WeightFlatRoad](/services/TNM_Weighter_FlatRoad) (2021)
+- [CombinerExpectors](/services/TNM_Combiner_ExpectorCombiner) (2021)
+- [ExpectorSlopes](/services/TNM_Weighter_Slopes) (2021)
 
 
 ### Path Analytics
