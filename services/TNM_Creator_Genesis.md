@@ -2,14 +2,19 @@
 title: Creator
 description: 
 published: true
-date: 2021-11-11T10:03:36.463Z
+date: 2021-11-11T11:38:49.779Z
 tags: tnm
 editor: markdown
 ---
 
 # TNM Creator Service
 #### The adapter
-The adapter converts data 
+The adapter converts data from database datarow format into the Trafic Network Model.
+`from_json` function serializes from json. 
+`to_json` function that converts from the database representation into the TNM.
+
+The 
+
 The [data_model.py](#data-model-file) below shows : line 2 an example of the node data that is recieved from a database request, line 7 a node object `SwNode`, and line 17 a `nodeConversionScheme` translating from datarow to node object. line 30 example of the edge data that is recieved from a database request, line 39 an edge object `SwNode`, and line 51 a `edgeConversionScheme` translating from datarow to edge object. 
   
   
