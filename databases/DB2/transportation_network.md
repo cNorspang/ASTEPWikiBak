@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-11-11T07:25:16.748Z
+date: 2021-11-11T12:38:58.872Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -112,6 +112,7 @@ TO BE DONE
 ### segment
 
 The table `segment` describes a segment of a road, which is between two intersections. A segment is likewise always part of a single `road`.
+Be aware that since `segment` is purely made by this database, and doesn't exist on [vejman.dk](http://vejman.dk), the segments from that datasource won't have a `source_id`.
 
 | **Column Name** | **Type** | Explanation                             |
 | --------------- | -------- | ----------------------------             |
