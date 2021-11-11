@@ -2,24 +2,36 @@
 title: Creator
 description: 
 published: true
-date: 2021-11-11T11:38:49.779Z
+date: 2021-11-11T11:58:29.936Z
 tags: tnm
 editor: markdown
 ---
 
 # TNM Creator Service
-#### The adapter
-The adapter converts data from database datarow format into the Trafic Network Model.
-`from_json` function serializes from json. 
-`to_json` function that converts from the database representation into the TNM.
 
-The 
+The Creator Service handles the creation of all data needed for the [Transport Network Model RFC0020](/rfc/0020).
 
+As such, any future user who wants to increase the amount of available data in the Creator should follow the guidelines in [How to insert new data](#how-to-insert-new-data)
+
+Because of this, the Creator service consists primarily of two components.
+- [Database connection](#database-connection)
+- [The adapter](#the-adapter)
+
+## Database connection
+The Creator database is the sole owner of the [transportation_network](/databases/DB2/transportation_network) database.
+
+To gain database access, the service holds a `database.ini` file in the creator src repo, this file holds the credentials to the database and is kept in the gitignore file. 
+
+## The adapter
+The creator is responsible for serializing the initial data from the database into the TNM model. To be able to do this, it has an Adapter class in the `adapter.py` file which handles two functions.
+
+- from_json(options) takes the options given from the Controller and uses it as input as to which data is needed for the concrete operation.
+- to_json(\*\*kwargs) takes two keyword arguments, nodes=data1 and edges=data2. Those get converted to a valid TNM model.
+
+To make the handling of this conversion easier to change, a `data_model.py` holds the different conversion functions used in the `to_json()` function.
+  
+### data model file
 The [data_model.py](#data-model-file) below shows : line 2 an example of the node data that is recieved from a database request, line 7 a node object `SwNode`, and line 17 a `nodeConversionScheme` translating from datarow to node object. line 30 example of the edge data that is recieved from a database request, line 39 an edge object `SwNode`, and line 51 a `edgeConversionScheme` translating from datarow to edge object. 
-  
-  
-  ### data model file
-  data_model.py
   ``` python
     """
       DB: sw601f20_routing, Table: node
@@ -100,3 +112,6 @@ When a microservice introduces new data into the TNM, this file needs to be upda
   nodes,
   edges***
 {.is-warning}
+
+## How to insert new data
+TO DO
