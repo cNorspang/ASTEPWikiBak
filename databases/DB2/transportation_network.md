@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-11-11T07:10:31.214Z
+date: 2021-11-11T07:12:47.651Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -29,7 +29,9 @@ The ER Diagram presented below describes the structure of the different entities
 Apart from following standard notation of DBS, there are these important additions to make a proper presentation of a spatial ER diagram.
 - The line in the bottom of each entity describes what type of geometric information it contains.
 - The extra square behind road, intersection and segment shows that these are temporal, and that their datapoint change over time.
-- Some information is not present (such as the with/against terminology / empty Notes). This is due to the fact that there is data of that kind available on [vejman.dk](http://www.vejman.dk/), but it hasn't yet been needed for extraction.
+- The notes in the bottom describe their corresponding multi-attribute on either segment or intersection.
+- Dotted lines show from which data or relation, a derived attribute can be derived.
+- Some of the notes in the bottom are empty. This is due to the fact that there is data of that kind available on [vejman.dk](http://www.vejman.dk/), but it hasn't yet been needed for extraction.
 
 ## Tables
 
