@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-11-11T07:23:11.677Z
+date: 2021-11-11T07:25:16.748Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -26,7 +26,7 @@ The ER Diagram presented below describes the structure of the different entities
 ![tnm_er_diagram.png](/database/tnm_er_diagram.png)
 *The corresponding draw io file is available [here](/database/tnm_er_diagram.drawio)*
 
-Apart from following standard notation of DBS, there are these important additions to make a proper presentation of a spatial ER diagram.
+Apart from following standard notation of DBS, there are these important additions to make a proper presentation of a temporal spatial ER diagram, as well as some clarifications.
 - The line in the bottom of each entity describes what type of geometric information it contains.
 - The extra square behind road, intersection and segment shows that these are temporal, and that their datapoint change over time.
 - The notes in the bottom describe their corresponding multi-attribute on either segment or intersection.
