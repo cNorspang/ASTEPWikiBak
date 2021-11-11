@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-11-11T07:12:47.651Z
+date: 2021-11-11T07:23:11.677Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -43,11 +43,13 @@ The database contains 5 tables:
 - [`segment`](#segment)
 - [`mileage_post`](#mileage_post)
 
+Each table will have a short summary of its semantic meaning, then an overview of its attributes are presented. Names are written as the columns in the database, following its datatype and a short semantic explanation.
+
 The datatypes should be self explanatory, however, there are two exceptions.
-- The MULTI data type references the fact that [base attributes](#base-atributes) are only being described ones, despite the fact that all entities have them.
+- The MULTI data type references the fact that [base attributes](#base-atributes) since it is used in all entities, it is described seperatly in its own [section](#base-attributes).
 - The ENUM data type is just a simple STRING datatype, with the added caveat that there is a condition as to what values the string can be, described below the given table.
 
->Presently, all tables only have the most recent datapoint, but since most have different data at different times, the inclusion of temporal data extension tables such as Rules, Construction, etc. might be beneficial to expand on later if time allows it.
+>Presently, all tables only have the most recent datapoint, but since most have different data at different times, the inclusion of temporal data extension tables might be beneficial to expand on later if time allows it.
 {.is-info}
 
 ### base attributes
@@ -61,14 +63,14 @@ The `base attributes` are attributes shared between all the different entities, 
 | source_id       | INTEGER   | Unique identier in the source      |
 | geom            | REFERENCE | Contains the geometry, created by postgis |
 
-The current `sources` are:
+The current `source` values are:
 [vejman.dk](http://vejman.dk)
 
 The `geom` attribute is created by the `postgis` extension of the `postgresql` database, and makes it possible to save spatial data.
 
 ### municipality
 
-The table `municipality` represents the administrative and regional entity that manages and contains all the road infrastructure.
+The table `municipality` represents the administrative and regional entity that manages and contains all the road infrastructure. Be aware that roads owned by the state are in fact managed/contained by the administrative entity "Vejdirektoratet" in the real world, but that this information has been omitted due to it being found irrelevant.
 
 | **Column Name** | **Type** | Explanation                             |
 | --------------- | -------- | ----------------------------             |
@@ -76,15 +78,15 @@ The table `municipality` represents the administrative and regional entity that 
 | name            | ENUM     | The daily-speak name of the municipality |
 | country         | ENUM     | The daily-speak name of the country      |
 
-The current municipalities are:
+The current `municipality` values are:
 Aalborg
 
-The current countries are:
+The current `country` values are:
 Denmark
 
 ### road
 
-The table `road` represents a single unbroken road inside a municipality. The road contains all the [mileage_posts](#mileage_post) which runs along its path, and is the closest representation of what is present in [vejman.dk](http://vejman.dk).
+The table `road` represents a single unbroken road inside a `municipality`. The `road` contains all the [mileage_posts](#mileage_post) which runs along its path, and is the closest representation of what is present in [vejman.dk](http://vejman.dk).
 
 | **Column Name** | **Type** | Explanation                             |
 | --------------- | -------- | ----------------------------             |
@@ -95,27 +97,29 @@ The table `road` represents a single unbroken road inside a municipality. The ro
 
 ### intersection
 
-The table `intersection` describes areas where two or more roads intersect. Intersections which have [mileage_posts](#mileage_post) from different municipalities signify the borders between the different municipalities.
+The table `intersection` describes areas where two or more roads intersect.
 
 | **Column Name** | **Type** | Explanation                             |
 | --------------- | -------- | ----------------------------             |
 | base_attribs    | MULTI    | Read [base attributes](#base-attributes) |
-| type            | ENUM     | The type of intersection |
+| is_border       | BOOL     | Designates bordering between 2 or more municipalities|
+| type            | ENUM     | The functional type of intersection |
 | signal_control  | BOOL     | Whether the intersection has signal control |
 
-The current intersections type values are:
+The current intersections `type` values are:
 TO BE DONE
 
 ### segment
 
-The table `segment` describes a segment of a road, which is between two intersections. Attributes described as "with_attribute" designate that the attribute only counts for the side of the road going in the direction From -> To, whereas "against_attribute" designate the opposite direction.
+The table `segment` describes a segment of a road, which is between two intersections. A segment is likewise always part of a single `road`.
 
 | **Column Name** | **Type** | Explanation                             |
 | --------------- | -------- | ----------------------------             |
 | base_attribs    | MULTI     | Read [base attributes](#base-attributes) |
 | from_id         | REFERENCE | Going from the ForeignKey to mileage_post|
 | to_id           | REFERENCE | Going to the ForeignKey to mileage_post  |
-| length          | INTEGER   | Length in meters, derived from mileage_posts |
+| length          | INTEGER   | Length of the segment in meters           |
+| with_slope			| DECIMAL   | The slope of the segment, going From -> To  |
 | type            | ENUM      | Designates the expected usage of the road   |
 | type_max_speed  | INTEGER   | Max speed as derived from the road type     |
 | set_max_speed   | INTEGER   | Max speed as set by the municipality        |
@@ -139,7 +143,7 @@ The current one_way values are:
 
 ### mileage_post
 
-The table `mileage_post` describes the mileage posts ('kilometreringspæle' in danish) which is alongside the road.
+The table `mileage_post` describes the mileage posts ('kilometreringspæle' in danish) which is alongside the `road`.
 
 | **Column Name** | **Type** | Explanation                             |
 | --------------- | -------- | ----------------------------             |
