@@ -2,7 +2,7 @@
 title: Creator
 description: 
 published: true
-date: 2021-11-11T11:58:29.936Z
+date: 2021-11-11T12:02:43.030Z
 tags: tnm
 editor: markdown
 ---
@@ -20,15 +20,13 @@ Because of this, the Creator service consists primarily of two components.
 ## Database connection
 The Creator database is the sole owner of the [transportation_network](/databases/DB2/transportation_network) database.
 
-To gain database access, the service holds a `database.ini` file in the creator src repo, this file holds the credentials to the database and is kept in the gitignore file. 
+To gain database access, the service holds a `database.ini` file in the creator src repo. This file holds the credentials to the database and is kept in the gitignore file.
 
 ## The adapter
 The creator is responsible for serializing the initial data from the database into the TNM model. To be able to do this, it has an Adapter class in the `adapter.py` file which handles two functions.
 
 - from_json(options) takes the options given from the Controller and uses it as input as to which data is needed for the concrete operation.
-- to_json(\*\*kwargs) takes two keyword arguments, nodes=data1 and edges=data2. Those get converted to a valid TNM model.
-
-To make the handling of this conversion easier to change, a `data_model.py` holds the different conversion functions used in the `to_json()` function.
+- to_json(\*\*kwargs) takes four keyword arguments, as can be seen below. Those get converted to a valid TNM model. To make the handling of this conversion easier to change, a `data_model.py` holds the different conversion functions used in the `to_json()` function.
   
 ### data model file
 The [data_model.py](#data-model-file) below shows : line 2 an example of the node data that is recieved from a database request, line 7 a node object `SwNode`, and line 17 a `nodeConversionScheme` translating from datarow to node object. line 30 example of the edge data that is recieved from a database request, line 39 an edge object `SwNode`, and line 51 a `edgeConversionScheme` translating from datarow to edge object. 
