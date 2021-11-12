@@ -2,7 +2,7 @@
 title: Chart types
 description: A list of all the charts available in the aSTEP user interface.
 published: true
-date: 2021-11-10T08:06:54.824Z
+date: 2021-11-12T10:23:06.596Z
 tags: user_interface, ui, chart
 editor: markdown
 ---
@@ -362,56 +362,104 @@ The example contains a 'Geographical Geometry' chart and a 'Chart.js' chart.
 ![scroll-chart-1-min.png](/chart_examples/scroll-chart-1-min.png)
 
 ## Generic Timeseries Chart
-This chart is an implementation of the chart framework `ChartJS`. It can render any static chart.
+This chart type is based on the chart framework [ChartJS](https://www.chartjs.org/).
+The front-end uses ChartJS 2.7.3, but check up if this has updated. 
+The source code implementation can be [here](https://daisy-git.cs.aau.dk/astep-2021/userinterface-21/-/tree/master/app%2Fsrc%2Fapp%2Fcharts%2Fgeneric-timeseries).
 
-This is a lot of magic, but please look at the ChartJS documentation for actual implementations. Front-end uses ChartJs 2.7.3, but check up if this has updated. 
-
-Note that error and classifications within the `predictions` property is optional. You can have one or the other, or both. (maybe none?)
-
-For more info see. https://www.chartjs.org/
 
 ### Syntax
+The syntax of the `generic-time-series` chart type is detailed below. Starting with the entire overview of JSON properties, which are described in more detail afterward.
 ```json
 {
     "chart_type": "generic-time-series",
     "content": {
-        "chartData": <Dictionary of [string]: 
-            {
-                "data": [List of [float]],
-                "inputSize": [integer],
-                "predictions": [List of 
-                    {
-                        "data": [List of [float]]
-                        "error": <Dictionary of [string]: [float]>
-                        "classifications": <Dictionary of [string]: [float]>
-                    }
-                ]
+        "chartData": { 
+        		<Dictionary of [string]: {
+                    "data": [List of [float]],
+                    "inputSize": [integer],
+                    "predictions": [
+                    		List of {
+                            "data": [List of [float]],
+                            "error": <Dictionary of [string]: [float]>,
+                            "classifications": <Dictionary of [string]: [float]>
+                    		}
+                		]
             }
-        >,
-        "labels": <Either [List of [sting]] or <NoneType>>
+        },
+        "labels": <Either [List of [string]] or <NoneType>>
     }
 }
 ```
 
-### Example
-<details>
-  <summary>JSON</summary>
-  
+```json
+//chartData
+{
+    "chart_type": "generic-time-series",
+    "content": {
+        "chartData": { 
+        		<Dictionary of [string]: [List of [dataset]]
+        },
+        "labels": <Either [List of [string]] or <NoneType>>
+    }
+}
+```
+*Note that `dataset` is not a JSON property for the chart type, however it is used as an abstraction above to ease the understanding of the different JSON components of the chart type. The `dataset` property is simply replaced by wrapping the contents in curly brackets, see the example provided further below.*
+
+`labels` corresponds to the values shown on the x-axis of the rendered chart. Default is simply the integer range from 1 to input length of the data.
+
+```json
+//dataset
+"chartData": {
+		<Dictionary of [string]: {
+    		"data": [List of  [float] or [integer]],
+        "inputSize": [integer],
+        "predictions": [List of [prediction]]
+    }
+}
+```
+`data` corresponds to the input data, i.e the solid part of the function when rendered.
+`inputSize` corresponds to the amount of elements from `data` to use for the next prediction step.
+
+```json
+//prediction
+"predictions" : {
+		"data": [List of [float] or [integer]],
+    "error": <Dictionary of [string]: [float]>,
+		"classifications": <Dictionary of [string]: [float]>
+}
+```
+`data` corresponds to the y-values of the prediction based on the input data. Providing one element for `data` corresponds to predicting 1 timestep ahead, providing *n*-elements corresponds to prediction the next *n*-timesteps ahead.
+`error` is a dictionary mapping a `string` to a `float`, corresponding to providing a name of an error function to the output of said error function. i.e using Mean Average Error (MAE) one can pass:
+```json
+error: {
+		"mae": 66.3
+}
+```
+`error` is optional.
+
+`classifications` is a dictionary mapping a `string` to a `float`, corresponding to providing a name of a class to the confidence of the data belonging to said class. For example provided data is examined to determine if it is an outlier:
+```json
+classifications: {
+		"outlier": 90
+}
+```
+`classifications` is optional.
+
+### Example of `generic-time-series` use
 ```json
   {
-    'chart_type': 'generic-time-series'
+    'chart_type': 'generic-time-series',
     'content': {
         'chartData': {
-            'Fun': {
+            'My Function': {
                 'data': [
                      0,
                      100,
                      200,
-                     (...)
                      8300,
                      8400
-                ]
-                'inputSize': 3
+                ],
+                'inputSize': 3,
                 'predictions': [
                      {
                         'data': [
@@ -420,9 +468,9 @@ For more info see. https://www.chartjs.org/
                              300,
                              300,
                              300
-                        ]
+                        ],
                         'error': {
-                            'mae': 60.0
+                            'mae': 60.0,
                             'smape': 17.320508075688775
                         }
                     },
@@ -433,15 +481,12 @@ For more info see. https://www.chartjs.org/
                              400,
                              400,
                              400
-                        ]
+                        ],
                         'error': {
-                            'mae': 80.0
+                            'mae': 80.0,
                             'smape': 20.0
                         }
                     },
-                    
-                    (...)
-
                      {
                         'data': [
                              8700,
@@ -449,9 +494,9 @@ For more info see. https://www.chartjs.org/
                              8700,
                              8700,
                              8700
-                        ]
+                        ],
                         'error': {
-                            'mae': 1740.0
+                            'mae': 1740.0,
                             'smape': 93.27379053088815
                         }
                     },
@@ -462,9 +507,9 @@ For more info see. https://www.chartjs.org/
                              8800,
                              8800,
                              8800
-                        ]
+                        ],
                         'error': {
-                            'mae': 1760.0
+                            'mae': 1760.0,
                             'smape': 93.8083151964686
                         }
                     },
@@ -475,9 +520,9 @@ For more info see. https://www.chartjs.org/
                              8900,
                              8900,
                              8900
-                        ]
+                        ],
                         'error': {
-                            'mae': 1780.0
+                            'mae': 1780.0,
                             'smape': 94.33981132056604
                         }
                     }
@@ -488,7 +533,20 @@ For more info see. https://www.chartjs.org/
 } 
 
 ```
-</details>
+
+The JSON example provided above define the `generic-time-series` graph for some arbitrary data.
+First of all in line 2 the `chart_type` to use is defined as `generic-time-series`, while the 
+the function or line to render is defined in line 5, and called *My Function*.
+The input `data` of the function is defined in lines 6 through 12 as 5 data points and the `inputSize` is 3. This signify that the first `data` property within the `predictions` object predict 5 timesteps ahead based on the first 3 input `data` points. In essence, the data points [0, 100, 200] (lines 7-9) is used to predict [300, 300, 300, 300, 300] (lines 16-22) with a `mae` of 60.0 and `smape` of 17.320508075688775 for timesteps 4 through 8, based on timesteps 1 through 3.
+
+
+The graph use timesteps to move over the predictions at a predefined tickrate.
+For timestep 2 the input data points [100, 200, 8300] (lines 8-10) is used to predict another 5 timesteps ahead resulting in the [400, 400, 400, 400, 400] (lines 29-35) prediction with a `mae` of 80.0 and `smape` of 20.0.
+This process is carried out until all of the input data has been used or there is no more predictions to render.
+
+A static image of the rendered graph can be seen below, and a working implementation can be generated by visting the [Generic Time Series Prediction Service](https://www.astep.cs.aau.dk/tool/astep-2019-sw601f19.astep-dev.cs.aau.dk?example=3&prediction_steps=10&input_steps=32&data=&gpu=false&model=&gen_input_steps=&gen_prediction_steps=&hyper_config=&tune_config=&train_data=&train_gpu=false&kernel_width=%5B32,32,32,32,32%5D&n_filters=%5B16,16,16,16,16%5D&dilation_rate=8&latent_dim_lstm=50&dropout_lstm=0.2&latent_dim_gru=50&dropout_gru=0.2&latent_dim_reg_lstm=50&dropout_reg_lstm=0.2&train_model=&train_input_steps=32&train_prediction_steps=10&epochs=50&use_bias=false&bias_initializer=1&weight_initializer=1&batch_size=32&val_split=0.2&loss_function=1&optimizer=1&activation_function=1&learning_rate=0.01&clip_value=2&clip_norm=1&host=&image=&model_data=&prediction_data=&command=1) and pressing *Visualise Results*.
+
+![genereic-time-series-prediction-example.png](/generic_prediction/genereic-time-series-prediction-example.png)
 
 ## Socket Chart
 *NOTE: The documentation here is very vague. Sorry.*
