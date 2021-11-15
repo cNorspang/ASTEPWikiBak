@@ -2,7 +2,7 @@
 title: Chart types
 description: A list of all the charts available in the aSTEP user interface.
 published: true
-date: 2021-11-12T10:37:45.092Z
+date: 2021-11-15T12:03:32.722Z
 tags: user_interface, ui, chart
 editor: markdown
 ---
@@ -364,7 +364,7 @@ The example contains a 'Geographical Geometry' chart and a 'Chart.js' chart.
 ## Generic Timeseries Chart
 This chart type is based on the chart framework [ChartJS](https://www.chartjs.org/).
 The front-end uses ChartJS 2.7.3. To check if this has been updated go [here](https://daisy-git.cs.aau.dk/astep-2021/userinterface-21/-/blob/master/app/package.json). 
-The source code implementation can be [here](https://daisy-git.cs.aau.dk/astep-2021/userinterface-21/-/tree/master/app%2Fsrc%2Fapp%2Fcharts%2Fgeneric-timeseries).
+The source code implementation can be found [here](https://daisy-git.cs.aau.dk/astep-2021/userinterface-21/-/tree/master/app%2Fsrc%2Fapp%2Fcharts%2Fgeneric-timeseries).
 
 
 ### Syntax
