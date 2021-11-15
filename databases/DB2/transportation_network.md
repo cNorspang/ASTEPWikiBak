@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-11-15T13:45:19.678Z
+date: 2021-11-15T13:49:45.973Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -27,8 +27,9 @@ The ER Diagram presented below describes the structure of the different entities
 *The corresponding draw io file is available [here](/database/tnm_er_diagram.drawio)*
 
 Apart from following standard notation of DBS, there are these important additions to make a proper presentation of a temporal spatial ER diagram, as well as some clarifications.
-- The text in the bottom of each entity describes what type of geometric information it contains as defined by postgis
-- The extra square behind road, intersection and segment shows that these are temporal, and that their datapoint change over time.
+- The text in the bottom of each entity describes what type of geometric information it contains as defined by postgis.(Multiline,Point...)
+- G denotes Geometric data, T denotes Temporaldata. 
+- The extra square behind road, intersection and segment shows that these are temporal (T), and that their datapoint change over time.
 - Dotted lines show from which data or relation, a derived attribute can be derived.
 - The notes in the bottom of the diagram describe the entities corresponding multi-attribute on either segment or intersection.
 - Some of the notes in the bottom are empty. This is due to the fact that there is data of that kind available on [vejman.dk](http://www.vejman.dk/), but it hasn't yet been needed for extraction.
