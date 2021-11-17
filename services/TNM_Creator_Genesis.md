@@ -2,7 +2,7 @@
 title: Creator
 description: 
 published: true
-date: 2021-11-17T10:50:04.827Z
+date: 2021-11-17T11:55:30.042Z
 tags: tnm
 editor: markdown
 ---
@@ -40,12 +40,12 @@ When a microservice introduces new data into the TNM, this file needs to be upda
                 nodes=db_handler.get_all('node')
                 )
   ```
->    **!Note that the variable names in the function calls parameters, on the left side of the equal sign, are used within the to_json function and MUST be identical: 
-  *node_conversion_scheme,
-  edge_conversion_scheme,
-  nodes,
-  edges***
-{.is-warning}
 
 ## How to insert new data
-TO DO
+The [transportation_network](/databases/DB2/transportation_network) database is owned by the Creator Service, and it is therefore the Creator which fetches the data from it and populates the database with data.
+
+The creator, when run, will only fetch data, and haven't been made as a CRUD application, since it only will handle static data.
+
+However, in the /vejman folder, the model_maker.ipync file is a Jupyter Notebook file running python, which holds all the logic and datasets, which create the database.
+
+By dropping all tables, and rerunning the functions, the database will be recreated with any changes made. Local testing with a postgres database having the postgis extension is recommended, since the queries are very slow.
