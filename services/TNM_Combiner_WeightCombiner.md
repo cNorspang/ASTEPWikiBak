@@ -2,7 +2,7 @@
 title: TNM Combiner WeightCombiner
 description: 
 published: true
-date: 2021-11-18T14:08:48.940Z
+date: 2021-11-18T15:02:33.603Z
 tags: tnm
 editor: markdown
 ---
@@ -44,67 +44,67 @@ The accepted _JSON_ input format:
         "userPref": <float>,
         "model": {
             "meta_data": {
-            "max_length": <int>,
-            "min_length": <int>,
-            "max_slope": <float>,
-            "min_slope": <float>,
-            "max_set_max_speed": <int>,
-            "min_recommended_speed": <int>,
-            "max_mean_speed": <float>,
-            "min_mean_speed": <float>,
-            "max_daily_year": <int>,
-            "min_daily_year": <int>,
-            "max_daily_july": <int>,
-            "min_daily_july": <int>,
-            "max_daily_trucks": <int>,
-            "min_daily_trucks": <int>
-            }
-        },
-        "vehicle": {
-            "id": <int>,
-            "name": <string>,
-            "data": {
-                "top_speed": <float>,
-                "milage": <float>,
-                "max_fuel": <float>
-            }
-        },
-        "nodes": {
-            "<int>": {
+                "max_length": <int>,
+                "min_length": <int>,
+                "max_slope": <float>,
+                "min_slope": <float>,
+                "max_set_max_speed": <int>,
+                "min_recommended_speed": <int>,
+                "max_mean_speed": <float>,
+                "min_mean_speed": <float>,
+                "max_daily_year": <int>,
+                "min_daily_year": <int>,
+                "max_daily_july": <int>,
+                "min_daily_july": <int>,
+                "max_daily_trucks": <int>,
+                "min_daily_trucks": <int>
+            },
+            "vehicle": {
                 "id": <int>,
-                "weight": <float>,
+                "name": <string>,
                 "data": {
-                    "longitude": <float>,
-                    "latitude": <float>,
-                    "country": <string>,
-                    "municipality": <string>,
-                    "is_border": <bool>,
-                    "type": <string>,
-                    "signal_control": <bool>
-                },
-                "edges": {
-                    "<int>": {
-                        "id": <int>,
-                        "to_node_id": <int>,
-                        "from_node_id" : <currentNode id>,
-                        "weight": <float>,
-                        "data": {
-                            "length": <int>,
-                            "slope": <float>,
-                            "type": <string>,
-                            "type_max_speed": <int>,
-                            "set_max_speed": <int>,
-                            "recommended_speed": <int>,
-                            "mean_speed": <float>,
-                            "daily_year": <int>,
-                            "daily_july": <int>,
-                            "daily_trucks": <int>,
-                            "daily_10_axle": <float>,
-                            "fuel_station": <bool>,
-                            "max_axle_load": <float>,
-                            "max_height": <float>,
-                            "max_length": <float>,
-                            "max_weight": <float>
+                    "top_speed": <float>,
+                    "milage": <float>,
+                    "max_fuel": <float>
+                }
+            },
+            "nodes": {
+                "<int>": {
+                    "id": <int>,
+                    "weight": <float>,
+                    "data": {
+                        "longitude": <float>,
+                        "latitude": <float>,
+                        "country": <string>,
+                        "municipality": <string>,
+                        "is_border": <bool>,
+                        "type": <string>,
+                        "signal_control": <bool>
+                    },
+                    "edges": {
+                        "<int>": {
+                            "id": <int>,
+                            "to_node_id": <int>,
+                            "from_node_id" : <currentNode id>,
+                            "weight": <float>,
+                            "data": {
+                                "length": <int>,
+                                "slope": <float>,
+                                "type": <string>,
+                                "type_max_speed": <int>,
+                                "set_max_speed": <int>,
+                                "recommended_speed": <int>,
+                                "mean_speed": <float>,
+                                "daily_year": <int>,
+                                "daily_july": <int>,
+                                "daily_trucks": <int>,
+                                "daily_10_axle": <float>,
+                                "fuel_station": <bool>,
+                                "max_axle_load": <float>,
+                                "max_height": <float>,
+                                "max_length": <float>,
+                                "max_weight": <float>
+                            }
                         }
                     }
                 }
