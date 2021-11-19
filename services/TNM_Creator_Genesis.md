@@ -2,7 +2,7 @@
 title: Creator
 description: 
 published: true
-date: 2021-11-17T11:55:30.042Z
+date: 2021-11-19T10:19:48.446Z
 tags: tnm
 editor: markdown
 ---
@@ -49,3 +49,18 @@ The creator, when run, will only fetch data, and haven't been made as a CRUD app
 However, in the /vejman folder, the model_maker.ipync file is a Jupyter Notebook file running python, which holds all the logic and datasets, which create the database.
 
 By dropping all tables, and rerunning the functions, the database will be recreated with any changes made. Local testing with a postgres database having the postgis extension is recommended, since the queries are very slow.
+
+## How relations are made
+Due to the complexity of the initial function creating the initial entities and relations, an example is provided to hopefully shed some light on how it is made.
+
+The datasets "municipality_spatial" are structured as rows containing two primary pieces of information. The first is a collection of attributes associated with the primary road at this point in the dataset. The other attributes are associated with the secondary road.
+This row then form the meta_information which specify that these two roads intersect at their prescribed mileages.
+
+Each road is, at some point, the primary road in the dataset, but all primary roads are in order. This means the following algorithm was conducted, which specifies the operations being made for each new row of data in the dataset. Each dataset represents a municipality.
+
+- First, a mileage_post id is constructed pointing to the id used in Vejman.dk, so it is possible to update it with future information.
+- Then it is checked if there is a "dangling" previous segment, which  will be removed, if the current row is on a new primary road.
+- Then the secondary roads mileage_post is checked. If it exists, it means it has been previously visited as a primary road, and the current primary roads mileage_post will then point to the same intersection. If not, the current primary road will create an intersection with the primary road only pointing to this intersection.
+- Then, if there is a "dangling" previous segment, it will be updated with a to_id, since the dataset have continued to the next line of the dataset. After this, a new "dangling" segment will be created, with a from_id from the current dataset.
+
+By following this logic, all intersections should be correctly created, together with the relevant entities, which can be seen in the algorithm in model_maker. If errors is found in this reasoning, this description as well as the algorithm should be changed accordingly, and recreate the database.
