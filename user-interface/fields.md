@@ -2,9 +2,9 @@
 title: Field types
 description: A list of all the available field types in the aSTEP user interface.
 published: true
-date: 2020-08-07T13:18:55.831Z
-tags: 
-editor: undefined
+date: 2021-11-19T10:54:26.872Z
+tags: fields, ui, user_
+editor: markdown
 ---
 
 # Field Types
@@ -119,7 +119,7 @@ The 'input-number' field allows only for numerical values to be entered (integer
     "type": "input-number",
     "name": "variable_name",
     "label": "My Label",
-    "default": 1234,
+    "default": "1234",
     "placeholder": "Input some text",
     "help_text": "Is this helpful?"
 }
