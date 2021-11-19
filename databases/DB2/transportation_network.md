@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-11-16T10:43:28.048Z
+date: 2021-11-19T10:06:35.016Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -156,5 +156,4 @@ The table `mileage_post` describes the mileage posts ('kilometreringspæle' in d
 
 ## How to add / change data
 
-In the [TNM Creator Microservice](/services/TNM_Creator_Genesis), a specific folder called `vejman` is responsible for how the database has been setup.
-In the folder, a jupyter notebook file called `model_maker` can be run to setup the database from scratch, if any problems are encountered, or data is corrupted.
+In the [TNM Creator Microservice](/services/TNM_Creator_Genesis), a specification for how to add new data has been described.
