@@ -2,7 +2,7 @@
 title: Creator
 description: 
 published: true
-date: 2021-11-19T23:47:02.919Z
+date: 2021-11-19T23:54:20.310Z
 tags: tnm
 editor: markdown
 ---
@@ -79,6 +79,8 @@ If you have trouble terminating the docker file, you can run:
 Inser the container ID found through the ls command, and the docker container will be forced (-f) to terminate.
 
 ## How to insert new data
+To get new data to the database, it might be possible to get access to vejman.dk by contacting [Institut for By, Byggeri og Miljø](https://vbn.aau.dk/da/organisations/build-institut-for-byggeri-by-og-milj%C3%B8). 
+
 The [transportation_network](/databases/DB2/transportation_network) database is owned by the Creator Service, and it is therefore the Creator which fetches the data from it and populates the database with data.
 
 The creator, when run, will only fetch data, and haven't been made as a CRUD application, since it only will handle static data.
@@ -110,4 +112,7 @@ The creator creates a proper TNM model, but has some shortfalls which could be e
 - The creator presently only has data on Aalborg municipality. This means Aalborg and Denmark are static objects.
 - Likewise, it does not handle intersections which are bordering other municipalities.
 - Vehicle is presently a static object, but could be made into a seperate table.
-- 
+- Not all mileage_posts have a proper coordinate. An Expector service could be made to "fill out the gaps" of these, by comparing to mileage_posts closeby.
+- The database presently has no temporal data tables, which could be created instead of the present use of static information on a road segment and intersections.
+- Right now, the Creator returns all the data it can. It could be useful to choose the amount of data retrieved.
+- And many more!
