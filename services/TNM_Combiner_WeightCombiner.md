@@ -2,7 +2,7 @@
 title: TNM Combiner WeightCombiner
 description: 
 published: true
-date: 2021-11-19T13:11:36.997Z
+date: 2021-11-19T13:14:40.868Z
 tags: tnm
 editor: markdown
 ---
@@ -52,12 +52,12 @@ The accepted _JSON_ input format:
                 "min_recommended_speed": <int>,
                 "max_mean_speed": <float>,
                 "min_mean_speed": <float>,
-                "max_daily_year": <int>,
-                "min_daily_year": <int>,
-                "max_daily_july": <int>,
-                "min_daily_july": <int>,
-                "max_daily_trucks": <int>,
-                "min_daily_trucks": <int>
+                "max_daily_year": <float>,
+                "min_daily_year": <float>,
+                "max_daily_july": <float>,
+                "min_daily_july": <float>,
+                "max_daily_trucks": <float>,
+                "min_daily_trucks": <float>
             },
             "vehicle": {
                 "id": <int>,
@@ -95,9 +95,9 @@ The accepted _JSON_ input format:
                                 "set_max_speed": <int>,
                                 "recommended_speed": <int>,
                                 "mean_speed": <float>,
-                                "daily_year": <int>,
-                                "daily_july": <int>,
-                                "daily_trucks": <int>,
+                                "daily_year": <float>,
+                                "daily_july": <float>,
+                                "daily_trucks": <float>,
                                 "daily_10_axle": <float>,
                                 "fuel_station": <bool>,
                                 "max_axle_load": <float>,
