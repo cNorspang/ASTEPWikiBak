@@ -2,7 +2,7 @@
 title: Services
 description: This page lists the documentation pages for the aSTEP services, as well as code libraries used by these services.
 published: true
-date: 2021-11-11T11:11:27.295Z
+date: 2021-11-19T10:01:04.798Z
 tags: 
 editor: markdown
 ---
@@ -55,6 +55,7 @@ Service names are followed by their year of creation enclosed in parentheses. Th
 - [Time Series Forecasting](time-series-forecasting) (2020 Spring)
 - [Outlier Detection](/services/OutlierDetection) (2020 Spring)
 - [Streaming Service Connector](/services/StreamingServiceConnector) (2020 Spring)
+- [Wind Speed Predictor](/services/WInd_Speed_Predictor) (2021 Fall)
 
 ### Speech Analytics
 - [Echelon](echelon) (2019)
