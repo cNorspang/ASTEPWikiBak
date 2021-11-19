@@ -2,7 +2,7 @@
 title: Creator
 description: 
 published: true
-date: 2021-11-19T10:19:48.446Z
+date: 2021-11-19T23:47:02.919Z
 tags: tnm
 editor: markdown
 ---
@@ -16,6 +16,12 @@ As such, any future user who wants to increase the amount of available data in t
 Because of this, the Creator service consists primarily of two components.
 - [Database connection](#database-connection)
 - [The adapter](#the-adapter)
+
+After this, the more practical questions are answered in
+- [How to run it locally](#how-to-run-it-locally)
+- [How to insert new data](#how-to-insert-new-data)
+- [How relations are made](#how-relations-are-made)
+- [What is missing work](#what-is-missing-work)
 
 ## Database connection
 The Creator database is the sole owner of the [transportation_network](/databases/DB2/transportation_network) database.
@@ -35,11 +41,42 @@ When a microservice introduces new data into the TNM, this file needs to be upda
   ```python
   	adapter.to_json(
                 node_conversion_scheme = node_conversion_scheme,
-                edge_conversion_scheme = node_conversion_scheme,
+                edge_conversion_scheme = edge_conversion_scheme,
                 edges=db_handler.get_all('edge'),
                 nodes=db_handler.get_all('node')
                 )
   ```
+
+## How to run it locally
+To run the creator locally, first you have to create a postgres server on your local computer, where you activate the postgis extension to use spatial  data.
+This is done by writing the following query to the database:
+- CREATE EXTENSION postgis;
+
+Next, locate the database.ini file in the creator root directory. Change the information in the file to the following
+
+```
+	[transportation_network]
+  host=host.docker.internal
+  database=<your_db_name>
+  user=<your_username>
+  password=<your_password>
+```
+The `host.docker.internal` is a way for the docker container to access your local machine, whereas if you write `localhost`, it will instead point to the virtual machine that the container is hosting.
+The other data is configured by you when you setup the database.
+
+The final step to run the service locally, is to build and run the container.
+In your terminal, go to the directory /your/path/to/tnn-creator-service, and run:
+- `docker build --tag creator .`
+- `docker run -p 5000:5000 creator`
+
+The `docker run` command runs the commands found in the `Dockerfile`, including a Continious Integration flow, where it runs all the tests written using `pytest`.
+Now, when you access `localhost:5000/`, you will go to the root url defined in service.py. If you access `localhost:5000/main`, the main function will be called and should return a full TNM model.
+
+If you have trouble terminating the docker file, you can run:
+- `docker container ls`
+- `docker rm -f <CONTAINER_ID>`
+
+Inser the container ID found through the ls command, and the docker container will be forced (-f) to terminate.
 
 ## How to insert new data
 The [transportation_network](/databases/DB2/transportation_network) database is owned by the Creator Service, and it is therefore the Creator which fetches the data from it and populates the database with data.
@@ -50,7 +87,7 @@ However, in the /vejman folder, the model_maker.ipync file is a Jupyter Notebook
 
 By dropping all tables, and rerunning the functions, the database will be recreated with any changes made. Local testing with a postgres database having the postgis extension is recommended, since the queries are very slow.
 
-## How relations are made
+### How relations are made
 Due to the complexity of the initial function creating the initial entities and relations, an example is provided to hopefully shed some light on how it is made.
 
 The datasets "municipality_spatial" are structured as rows containing two primary pieces of information. The first is a collection of attributes associated with the primary road at this point in the dataset. The other attributes are associated with the secondary road.
@@ -64,3 +101,13 @@ Each road is, at some point, the primary road in the dataset, but all primary ro
 - Then, if there is a "dangling" previous segment, it will be updated with a to_id, since the dataset have continued to the next line of the dataset. After this, a new "dangling" segment will be created, with a from_id from the current dataset.
 
 By following this logic, all intersections should be correctly created, together with the relevant entities, which can be seen in the algorithm in model_maker. If errors is found in this reasoning, this description as well as the algorithm should be changed accordingly, and recreate the database.
+
+## What is missing work
+The creator creates a proper TNM model, but has some shortfalls which could be expanded upon.
+
+- The creator does not fill the geometry of municipality, road and segment entities.
+- The creator does not verify that the algorithm described in [how relations are made](#how-relations-are-made) is fully correct. Specifically, it does not verify that a secondary road always will be visited again as a primary road later on in the dataset.
+- The creator presently only has data on Aalborg municipality. This means Aalborg and Denmark are static objects.
+- Likewise, it does not handle intersections which are bordering other municipalities.
+- Vehicle is presently a static object, but could be made into a seperate table.
+- 
