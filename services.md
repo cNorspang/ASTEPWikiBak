@@ -2,7 +2,7 @@
 title: Services
 description: This page lists the documentation pages for the aSTEP services, as well as code libraries used by these services.
 published: true
-date: 2021-11-30T07:30:57.632Z
+date: 2021-11-30T07:31:26.270Z
 tags: 
 editor: markdown
 ---
@@ -30,7 +30,7 @@ Service names are followed by their year of creation enclosed in parentheses. Th
 - [CombinerWeights](/services/TNM_Combiner_WeightCombiner) (2021)
 - [WeighterHeavyTraffic](/services/TNM_Weighter_HeavyTraffic) (2021)
 - [CombinerExpectors](/services/TNM_Combiner_ExpectorCombiner) (2021)
-- [ExpectorSlopes](/services/TNM_Weighter_Slopes) (2021)
+- [ExpectorFillWithMean](/services/TNM_Weighter_FillWithMean) (2021)
 
 
 ### Path Analytics
