@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-11-30T09:41:39.404Z
+date: 2021-11-30T09:43:48.692Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -113,7 +113,7 @@ TO BE DONE
 ### segment
 
 The table `segment` describes a segment of a road, which is between two intersections. A segment is likewise always part of a single `road`.
-The `segment` holds a `to_id` and `from_id` which are ForeignKeys to a `mileage_post`, which signifies where the `segment` starts and ends. Each of the `mileage_posts` always hold a reference to an `intersection`.
+The `segment` holds a `to_id` and `from_id` which are ForeignKeys to a `mileage_post` id, which signifies where the `segment` starts and ends. Each of the `mileage_posts` always hold a reference to an `intersection`.
 Be aware that since `segment` is purely made by this database, and doesn't exist on [vejman.dk](http://vejman.dk), the segments from that datasource won't have a `source_id`.
 
 | **Column Name** | **Type** | Explanation                             |
