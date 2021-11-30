@@ -2,7 +2,7 @@
 title: Services
 description: This page lists the documentation pages for the aSTEP services, as well as code libraries used by these services.
 published: true
-date: 2021-11-19T10:01:04.798Z
+date: 2021-11-30T07:30:57.632Z
 tags: 
 editor: markdown
 ---
@@ -28,7 +28,7 @@ Service names are followed by their year of creation enclosed in parentheses. Th
 - [Creator](/services/TNM_Creator_Genesis) (2021)
 - [Controller](/en/services/TNM_Controller) (2021)
 - [CombinerWeights](/services/TNM_Combiner_WeightCombiner) (2021)
-- [WeightFlatRoad](/services/TNM_Weighter_FlatRoad) (2021)
+- [WeighterHeavyTraffic](/services/TNM_Weighter_HeavyTraffic) (2021)
 - [CombinerExpectors](/services/TNM_Combiner_ExpectorCombiner) (2021)
 - [ExpectorSlopes](/services/TNM_Weighter_Slopes) (2021)
 
