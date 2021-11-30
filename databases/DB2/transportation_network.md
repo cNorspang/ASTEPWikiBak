@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-11-19T10:06:35.016Z
+date: 2021-11-30T09:38:24.465Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -118,8 +118,8 @@ Be aware that since `segment` is purely made by this database, and doesn't exist
 | **Column Name** | **Type** | Explanation                             |
 | --------------- | -------- | ----------------------------             |
 | base_attribs    | MULTI     | Read [base attributes](#base-attributes) |
-| from_id         | REFERENCE | Going from the ForeignKey to mileage_post|
-| to_id           | REFERENCE | Going to the ForeignKey to mileage_post  |
+| from_id         | REFERENCE | Segment starts from the mileage_post id|
+| to_id           | REFERENCE | Segment ends at the mileage_post id  |
 | length          | INTEGER   | Length of the segment in meters           |
 | with_slope			| DECIMAL   | The slope of the segment, going From -> To  |
 | type            | ENUM      | Designates the expected usage of the road   |
