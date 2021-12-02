@@ -2,7 +2,7 @@
 title: Services
 description: This page lists the documentation pages for the aSTEP services, as well as code libraries used by these services.
 published: true
-date: 2021-12-02T10:04:58.351Z
+date: 2021-12-02T10:05:33.662Z
 tags: 
 editor: markdown
 ---
@@ -15,6 +15,10 @@ The service documentation is split into three sections: "UI and related", "categ
 
 Service names are followed by their year of creation enclosed in parentheses. That is: "*Service Name (creation year)*". All service documentation should follow the [Service Documentation Standard](/services/documentation-standard) as much as possible. The [Getting Started](/getting-started) page explains how to make a new service.
 
+## Templates
+
+- [Python Template](/services/python-template) (2021)
+
 ## User Interface
 - [User Interface](user-interface) (N/A)
 - [Notebook](notebook) (2020 Spring)
@@ -23,8 +27,6 @@ Service names are followed by their year of creation enclosed in parentheses. Th
 - [Socket Service](socket-service) (2019)
 
 ## Categories
-
-- [Python Template](/services/python-template) (2021)
 
 ### Transportation Network (RFC 0020)
 - [Creator](/services/TNM_Creator_Genesis) (2021)
