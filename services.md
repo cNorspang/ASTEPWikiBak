@@ -2,7 +2,7 @@
 title: Services
 description: This page lists the documentation pages for the aSTEP services, as well as code libraries used by these services.
 published: true
-date: 2021-11-30T07:56:15.031Z
+date: 2021-12-02T10:04:58.351Z
 tags: 
 editor: markdown
 ---
@@ -23,6 +23,8 @@ Service names are followed by their year of creation enclosed in parentheses. Th
 - [Socket Service](socket-service) (2019)
 
 ## Categories
+
+- [Python Template](/services/python-template) (2021)
 
 ### Transportation Network (RFC 0020)
 - [Creator](/services/TNM_Creator_Genesis) (2021)
