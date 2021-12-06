@@ -2,7 +2,7 @@
 title: Dijkstra routing
 description: 
 published: true
-date: 2021-12-06T11:36:58.902Z
+date: 2021-12-06T11:47:01.198Z
 tags: 
 editor: markdown
 ---
@@ -71,7 +71,7 @@ The field '*graph*' encompasses the weighted search graph in the field '*nodes*'
 The field '*start_node*' contains the ID of the node which should be the starting node of the search. An example of the field can be seen below.
 ``` JSON
 {
-	"start_node": 4
+	"start_node": 1
 }
 ```
 
@@ -79,7 +79,7 @@ The field '*start_node*' contains the ID of the node which should be the startin
 The field '*goal_node*' contains the ID of the node which should be the goal node of the search. An example of the field can be seen below.
 ``` JSON
 {
-	"goal_node": 4
+	"goal_node": 3
 }
 ```
 
@@ -93,8 +93,43 @@ The field '*start_node*' contains the ID of the node which should be the startin
     	"last_service": "Dijkstra Routing"
     },
     "nodes": {
-    	
+    	"1": {
+      	"from_node_id": 1,
+        "weight": 0.0,
+        "data": {...},
+        "edges": {
+        	"3": {
+          	"id": 3,
+            "from_node_id": 1,
+            "to_node_id": 2,
+            "weight": 0.3,
+            "data": {...}
+          }
+        }
+      },
+      "2": {
+      	"from_node_id": 2,
+        "weight": 0.0,
+        "data": {...},
+        "edges": {
+        	"7": {
+          	"id": 7,
+            "from_node_id": 2,
+            "to_node_id": 3,
+            "weight": 0.2,
+            "data": {...}
+          }
+        }
+      },
+      "3": {
+      	"from_node_id": 3,
+        "weight": 0.0,
+        "data": {...},
+        "edges": {}
+      }
     }
   }
 }
 ```
+
+As can be seen in the example, the field '*nodes*' contains the nodes and edges used in the path. In this example the starting node is node 1, and the goal node is node 3, here node 1, goes to node 2 using edge 3 and node 2 goes to node 3 using edge 7, and because node 3 is the goal, no edge is used to move further, hence it's '*edges*' field is empty.
