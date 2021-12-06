@@ -2,7 +2,7 @@
 title: Traveling salesman 
 description: Two services used to solve the traveling salveman problem
 published: true
-date: 2021-12-06T11:46:42.945Z
+date: 2021-12-06T11:53:15.463Z
 tags: 
 editor: markdown
 ---
@@ -131,10 +131,10 @@ The service can be called by sending a **POST** request to **/prune** of this se
 ## Solving the traveling salesman problem
 Solving the traveling salesman problem is difficult, so three algorithms using different heuristics to try to solve it have been implemented. These algorithms are all included in this service.
 
-### Input
-The service takes the output of the previous service as input. Thus, the previously described service should be called first to prune the TNM to a suitable graph for the TSP, and then call this service with the pruned TNM. 
+#### Input
+The service takes the output of the previous service as input. Thus, the previously described service should be called first to prune the TNM to a suitable graph for the TSP, and then this service can be called with the pruned TNM as input. 
 
-### Heuristics
+#### Heuristics
 Since it is heuristic solutions, the optimal solutions may not be found, but the heuristic algorithms used should be decent. The simplest algorithm is a random one, that just randomly generates a route. This will often not be close to the optimal solution. The second algorithm is nearest neightbor, which works by always going to the closest node. This is better then random, but can still find terrible solutions. Lastly the 2 opt method have been implemented. This again will rarely find the optimal solution, but is often really close.
 
 ### Calling the service
