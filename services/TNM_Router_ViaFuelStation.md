@@ -2,7 +2,7 @@
 title: TNM Router ViaFuelStation
 description: 
 published: true
-date: 2021-12-06T13:17:25.494Z
+date: 2021-12-06T13:20:15.481Z
 tags: 
 editor: markdown
 ---
@@ -191,7 +191,7 @@ The microservice has three endpoints:
 - [Info](#Info)
 
 
-#### Status
+### Status
 Request type **GET**
 
 Path "/"
@@ -205,7 +205,7 @@ The RouterViaFuelStations is online!
 ```
 
 
-#### Route
+### Route
 Request type **POST**
 
 Path "/Route"
@@ -217,7 +217,7 @@ If the request is successful, a response with statuscode 200 and the TNM, which 
 
 If the request fails because of errors within the data, a response with statuscode 400 is returned alongside a message detailing what error occured.
 
-#### Info
+### Info
 Request type **GET**
 
 Path "/Info"
