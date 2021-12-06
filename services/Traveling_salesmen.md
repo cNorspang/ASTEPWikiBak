@@ -2,7 +2,7 @@
 title: Traveling salesman 
 description: Two services used to solve the traveling salveman problem
 published: true
-date: 2021-12-06T08:59:57.862Z
+date: 2021-12-06T09:03:05.125Z
 tags: 
 editor: markdown
 ---
