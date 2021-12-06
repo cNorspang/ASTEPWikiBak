@@ -1,8 +1,8 @@
 ---
-title: Dijkstra routing
-description: 
+title: Dijkstra Routing
+description: Shortest path routing service
 published: true
-date: 2021-12-06T11:48:34.799Z
+date: 2021-12-06T11:49:30.349Z
 tags: routing, tnm, dijkstra
 editor: markdown
 ---
