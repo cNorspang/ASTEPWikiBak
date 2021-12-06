@@ -2,7 +2,7 @@
 title: Traveling salesman 
 description: Two services used to solve the traveling salveman problem
 published: true
-date: 2021-12-06T09:03:33.786Z
+date: 2021-12-06T09:37:34.097Z
 tags: 
 editor: markdown
 ---
@@ -11,7 +11,7 @@ editor: markdown
 This section is concerned about solving the traveling salesman problem and will describe two different microservices. The first service creates a model that the second service can use to solve TSP and return to the UI.
 
 ## Creating a traveling salesman problem model
-As described in the other service of TNM, a full transportation network is saved on the database and used by the service in TNM. This road network is not suitable for working with TSP since nodes that sound not be visited are also part of the model. This is why a service is needed that takes the "normal" TNM model as input and returns a TSP model that can be used by other services to solve TSP.
+As described in the other service of TNM, a full transportation network is saved on the database and used by the service in TNM. This road network is not suitable for working with TSP since nodes that should not be visited are also part of the model. This is why a service is needed that takes the "normal" TNM model as input and returns a TSP model that can be used by other services to solve TSP.
 
 #### Input
 A interface for the input of the service can be seen below.
@@ -129,8 +129,9 @@ The service can be called by sending a **POST** request to **/prune** of this se
 
 
 ## Solving the traveling salesman problem
-
+Solving the traveling salesman problem is difficult, so three different heuristic ways to try to solve it have been implemented. 
 ### Heuristics
+Since it is heuristic solutions, the optimal solutions may not be found, but the heuristic algorithms used should be decent. The simplest algorithm is a random one, that just randomly generates a route. This will often not be close to the optimal solution. The second algorithm is neirest neightbor, which works by always going to the closest node. This is better then random, but can still find terrible solutions. Lastly the 2 opt method have been implemented. This again will rarely find the optimal solution, but is often really close.
 
 ### Calling the service
-
+The services can be call by sending a **POST** to either **/random**, **/hearest_neighbor** or **/two_opt**. When the service is called, a route is found. Based on what edges are taken in the route, the nodes that are actually visited are saved as a list, and returned. So if an edge consists of 3 nodes, as is the case for edge "1" and "2" in the above JSON, the three nodes will be listed. The output therefor consists of the order and all the nodes, that are visited. 
