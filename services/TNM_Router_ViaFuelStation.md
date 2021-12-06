@@ -2,7 +2,7 @@
 title: TNM Router ViaFuelStation
 description: 
 published: true
-date: 2021-12-06T13:20:15.481Z
+date: 2021-12-06T13:23:08.680Z
 tags: 
 editor: markdown
 ---
@@ -196,7 +196,7 @@ Request type **GET**
 
 Path "/"
 
-##### Usage
+**Usage**
 This endpoint returns a message if the service is running, and is only used for debugging.
 
 The message is as follows:
@@ -210,7 +210,7 @@ Request type **POST**
 
 Path "/Route"
 
-##### Usage
+**Usage**
 A request with the input JSON (as described earlier) is sent to the endpoint.
 
 If the request is successful, a response with statuscode 200 and the TNM, which only contains the desired route, is returned.
@@ -222,7 +222,7 @@ Request type **GET**
 
 Path "/Info"
 
-##### Usage
+**Usage**
 Used to get information about the service.
 
 The information is in the form of a redirect to the readme which is present on [GitLab](https://daisy-git.cs.aau.dk/astep-2021/tnmrouterviafuelstation2021/-/blob/master/README.md).
