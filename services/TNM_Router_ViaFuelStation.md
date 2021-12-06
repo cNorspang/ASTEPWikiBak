@@ -2,7 +2,7 @@
 title: TNM Router ViaFuelStation
 description: 
 published: true
-date: 2021-12-06T08:37:27.880Z
+date: 2021-12-06T13:13:30.681Z
 tags: 
 editor: markdown
 ---
@@ -29,7 +29,7 @@ The accepted _JSON_ input format:
     {
         "startNode": <int>,
         "endNode": <int>,
-        "fuelLevel": <int>,
+        "fuelLevel": <float>,
         "model": {
             "meta_data": {
                 "max_length": <int>,
