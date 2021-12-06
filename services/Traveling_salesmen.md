@@ -2,7 +2,7 @@
 title: Traveling salesman 
 description: Two services used to solve the traveling salveman problem
 published: true
-date: 2021-12-06T09:37:34.097Z
+date: 2021-12-06T09:38:55.160Z
 tags: 
 editor: markdown
 ---
@@ -134,4 +134,4 @@ Solving the traveling salesman problem is difficult, so three different heuristi
 Since it is heuristic solutions, the optimal solutions may not be found, but the heuristic algorithms used should be decent. The simplest algorithm is a random one, that just randomly generates a route. This will often not be close to the optimal solution. The second algorithm is neirest neightbor, which works by always going to the closest node. This is better then random, but can still find terrible solutions. Lastly the 2 opt method have been implemented. This again will rarely find the optimal solution, but is often really close.
 
 ### Calling the service
-The services can be call by sending a **POST** to either **/random**, **/hearest_neighbor** or **/two_opt**. When the service is called, a route is found. Based on what edges are taken in the route, the nodes that are actually visited are saved as a list, and returned. So if an edge consists of 3 nodes, as is the case for edge "1" and "2" in the above JSON, the three nodes will be listed. The output therefor consists of the order and all the nodes, that are visited. 
+The services can be call by sending a **POST** to either **/tsp_random**, **/nearest_neighbor** or **/two_opt**. When the service is called, a route is found. Based on what edges are taken in the route, the nodes that are actually visited are saved as a list, and returned. So if an edge consists of 3 nodes, as is the case for edge "1" and "2" in the above JSON, the three nodes will be listed. The output therefor consists of the order and all the nodes, that are visited. 
