@@ -2,7 +2,7 @@
 title: TNM Router ViaFuelStation
 description: 
 published: true
-date: 2021-12-06T13:16:41.994Z
+date: 2021-12-06T13:17:25.494Z
 tags: 
 editor: markdown
 ---
@@ -103,8 +103,8 @@ The accepted _JSON_ input format:
 ```
 
 **Attributes**
-- **"StartNode"** : The node begin the routing from.
-- **"EndNode"**: The destination node.
+- **"StartNode"** : The Id of the start node.
+- **"EndNode"**: The id of the destination node.
 - **"fuelLevel"**: The amount of start fuel (in liters).
 
 
