@@ -2,13 +2,17 @@
 title: TNM Router ViaFuelStation
 description: 
 published: true
-date: 2021-12-06T13:23:08.680Z
+date: 2021-12-06T13:25:49.776Z
 tags: 
 editor: markdown
 ---
 
 # TNM Router ViaFuelStation
-The **TNM Router ViaFuelStation** takes as input a single _Transport Network Model_ [(**TNM**)](https://wiki.astep-dev.cs.aau.dk/rfc/0020) with additional information. The additional information is as follows: The ID of the _Node_ where the the route starts, the ID of the _Node_ where the route ends and the amount of available fuel.
+The **TNM Router ViaFuelStation** takes as input a single _Transport Network Model_ [(**TNM**)](https://wiki.astep-dev.cs.aau.dk/rfc/0020) with additional information. 
+The additional information is as follows: 
+- The ID of the _Node_ where the the route starts.
+- The ID of the _Node_ where the route ends.
+- The amount of available fuel.
 
 The router returns a single TNM with only the relevant nodes and edges.
 
