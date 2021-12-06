@@ -2,7 +2,7 @@
 title: TNM Router ViaFuelStation
 description: 
 published: true
-date: 2021-12-06T08:34:21.580Z
+date: 2021-12-06T08:35:48.050Z
 tags: 
 editor: markdown
 ---
@@ -16,7 +16,7 @@ The code is available on [Gitlab](https://daisy-git.cs.aau.dk/astep-2021/tnmrout
 ## Content 
 - [Input Format](#input-format)
 - [Output Format](#output-format)
-- [End Points](#endpoints)
+- [Endpoints](#endpoints)
 
 
 ## Input Format
