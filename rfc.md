@@ -2,7 +2,7 @@
 title: Request for Comments (RFC)
 description: Overview and Guideline
 published: true
-date: 2021-10-25T17:24:13.882Z
+date: 2021-12-06T10:42:57.069Z
 tags: rfc, request, for, comments, change
 editor: markdown
 ---
@@ -43,7 +43,7 @@ The RFC's present the standard which every student working on aSTEP should follo
 
 | RFC Number| Title| Summary | Year |Status
 |-------|:-:|:-----|---------|:-----|------
-| [RFC0020](/rfc/0020)  | Transportation Network Model | RFC0020 outlines a common data model, which transportation microservices can use as their basis | 2021 | **Pending**
+| [RFC0020](/rfc/0020)  | Transportation Network Model | RFC0020 outlines a common data model, which transportation microservices can use as their basis | 2021 | **Accepted**
 
 </details>
 
