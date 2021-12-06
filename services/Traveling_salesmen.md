@@ -2,7 +2,7 @@
 title: Traveling salesman 
 description: Two services used to solve the traveling salveman problem
 published: true
-date: 2021-12-06T09:03:05.125Z
+date: 2021-12-06T09:03:33.786Z
 tags: 
 editor: markdown
 ---
@@ -19,7 +19,7 @@ A interface for the input of the service can be seen below.
 ```json
 {
 	"startNode": <int>,
-  "endNodes": [<int>],
+  "endNodes": [<int>, ...],
   "fuelLevel": <int>
   "model": TNM_Model,
 }
