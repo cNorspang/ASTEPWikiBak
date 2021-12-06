@@ -2,8 +2,8 @@
 title: Dijkstra routing
 description: 
 published: true
-date: 2021-12-06T11:47:01.198Z
-tags: 
+date: 2021-12-06T11:48:34.799Z
+tags: routing, tnm, dijkstra
 editor: markdown
 ---
 
