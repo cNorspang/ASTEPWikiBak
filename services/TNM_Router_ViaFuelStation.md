@@ -2,7 +2,7 @@
 title: TNM Router ViaFuelStation
 description: 
 published: true
-date: 2021-12-06T08:33:17.497Z
+date: 2021-12-06T08:34:21.580Z
 tags: 
 editor: markdown
 ---
@@ -192,7 +192,7 @@ This endpoint returns a message if the service is running, and is only used for 
 
 The message is as follows:
 ```
-The WeightCombiner is online!
+The RouterViaFuelStations is online!
 ```
 
 
