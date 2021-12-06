@@ -1,8 +1,8 @@
 ---
 title: TNM Controller
-description: xd
+description: The controller service of TNM is responsable for calling all other services in TNM and linking it together
 published: true
-date: 2021-11-09T11:10:05.817Z
+date: 2021-12-06T09:35:02.394Z
 tags: 
 editor: markdown
 ---
