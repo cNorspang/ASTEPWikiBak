@@ -2,7 +2,7 @@
 title: TNM Controller
 description: The controller service of TNM is responsable for calling all other services in TNM and linking it together
 published: true
-date: 2021-12-06T09:35:02.394Z
+date: 2021-12-06T09:37:24.968Z
 tags: 
 editor: markdown
 ---
@@ -34,6 +34,10 @@ for idx, routerName in enumerate(routerNames):
 ```
 
 *ServiceInfoValidation()* ensures that the length of the arrays are equal, i.e. there are no weigtherNames without an URL and vice versa. It also ensures that there are no duplicate URLs, as this would indicate a copy-paste error. 
+
+**Add new weighter or router** 
+To add a new weighter or router you simply has to add it to the two corresponding lists depending on whether it is a weighter or router. The index in the two lists has to match for it to be added correctly. 
+
 
 ### UI creation
 
