@@ -2,7 +2,7 @@
 title: TNM Controller
 description: The controller service of TNM is responsable for calling all other services in TNM and linking it together
 published: true
-date: 2021-12-06T09:37:24.968Z
+date: 2021-12-07T10:45:33.151Z
 tags: 
 editor: markdown
 ---
@@ -60,6 +60,9 @@ Once it receives all the models from the weighter services, it sends it to the *
 Once it receives the model from the **Combiner** service, it sends the model to the chosen router service.
 
 The result from the router service is sent to the **UI**.
+
+## How to run locally
+Firstly the repository for the controller has to be installed. Then the packages in the **requirements.txt** file has to be downloaded. When the packages has been downloaded, one can simple run the **service.py** file and acces the UI through this link: https://astep.cs.aau.dk/tool/localhost:5000
 
 
 
