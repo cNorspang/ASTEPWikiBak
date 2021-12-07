@@ -2,7 +2,7 @@
 title: TNM Controller
 description: The controller service of TNM is responsable for calling all other services in TNM and linking it together
 published: true
-date: 2021-12-07T10:56:53.205Z
+date: 2021-12-07T11:06:01.557Z
 tags: 
 editor: markdown
 ---
@@ -60,6 +60,25 @@ Once it receives all the models from the weighter services, it sends it to the *
 Once it receives the model from the **Combiner** service, it sends the model to the chosen router service.
 
 The result from the router service is sent to the **UI** and the route is drawn to a map on the UI.
+
+## Endpoints in the controller
+Here is a short explaination of the different endpoints of the controller.
+
+#### /
+The root endpoint simply just returns a string saying: "Working as intended" to say that the service is running.
+
+#### /info
+This endpoint is used by the UI for creating its entry in the UI. This endpoint returns a JSON object telling the name of the service and what category on aSTEP it belongs to.
+
+#### /fields
+This endpoint is used by the UI to create the input fields of the service. These has been made dynamic so that they change depending on the users input.
+
+#### /render
+This endpoint is called whenever the "Visualise Result" button is pressed. It is here the controller does all the heavy lifting of contacting different services and lastly returning a map with the route to the UI.
+
+#### /readme
+This endpoint simply returns the readme file located in the repository. Furthermore this file is written to the UI before the "Visualise Result" button is clicked, which is why it is used to write instructions on how to use the service.
+
 
 ## How to run locally
 Firstly the repository for the controller has to be installed. Then the packages in the **requirements.txt** file has to be downloaded. When the packages has been downloaded, one can simple run the **service.py** file and acces the UI through this link: https://astep.cs.aau.dk/tool/localhost:5000 .
