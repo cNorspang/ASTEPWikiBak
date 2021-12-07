@@ -2,12 +2,12 @@
 title: TNM Controller
 description: The controller service of TNM is responsable for calling all other services in TNM and linking it together
 published: true
-date: 2021-12-07T10:47:12.373Z
+date: 2021-12-07T10:53:21.455Z
 tags: 
 editor: markdown
 ---
 
-# Controller Description
+# TNM Controller
 
 The controller contains a static list of services and their respective URLs. These lists are used to create instances of the class *microservice*, which is later used to dynamically create UI and retrieve user preferences.
 
@@ -65,7 +65,8 @@ The result from the router service is sent to the **UI**.
 Firstly the repository for the controller has to be installed. Then the packages in the **requirements.txt** file has to be downloaded. When the packages has been downloaded, one can simple run the **service.py** file and acces the UI through this link: https://astep.cs.aau.dk/tool/localhost:5000 .
 This is useful when working/tweaking with the UI, since updates can be seen much faster than if the whole gitlab pipeline has to be passed first.
 
-
+## How to use the controller
+The controller is the only part of TNM that interacts with the UI, and because of this it has a lot of options to represent the different services in TNM. When a user has navigated to the "Transportation Network" tab in the UI they will see the entry of this controller, which at the moment is the only entry in this section. When the controller is clicked new options will pop up together with a guide how to use the service. The UI then dynamicly changes depending on what options a user chooses. When a user is content with their input they can click the "Visualise Restult" button to activate the controller with the given parameters. The results in a map being drawn with the created route.
 
 
 
