@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-11-30T09:52:28.051Z
+date: 2021-12-07T22:23:06.256Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -138,8 +138,9 @@ Be aware that since `segment` is purely made by this database, and doesn't exist
 | max_length      | DECIMAL   | Max accepted length of vehicle in meters     |
 | max_weight      | DECIMAL   | Max accepted weight of vehicle in tons       |
 
-The current segment type values are:
-TO BE DONE
+The current segment type values are in quotes:
+"expressway", "highway","rural local road, primary", "rural local road, secundary", "rural local road, tertiary", "city road, primary", "city road, secundary", "city local road, primary", "city local road, secundary", "city local road, tertiary", "rural path, primary", "rural path, secundary", "city path, primary", "city path, secundary", "rural green path, primary", "rural green path, secundary", "city green path, primary", "city green path, secundary", "parking facility", "resting facility", "city bicycle path", "rural bicycle path"
+Naming follows the order presented in the official documentation in danish, found [here](https://vej08.vd.dk/vis/help/B4831.htm)
 
 The current one_way values are:
 "with", "against", "none"
