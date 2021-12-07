@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-12-07T22:30:22.357Z
+date: 2021-12-07T22:35:27.723Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -69,6 +69,7 @@ The current `source` values are:
 
 The `geom` attribute is created by the `postgis` extension of the `postgresql` database, and makes it possible to save spatial data. The `geom` column therefore references a seperate table, which is created based on the type of geometry created (ie. a `POINT` type has a table with an X and Y column, whereas `POINTZ` type also has a Z column (in reality it is stored in a single column as a unique hash, but the explanation can be helpful to understand the idea)).
 Each `geom` attribute also saves what type of coordinate system is used to interpret the coordinates. The coordinates from vejman are using the UTM 32 system, having SRID 25832. These can then be transformed into SRID 4326, which is the regular longitude/latitude used by most maps.
+Bornholm however uses SRID 25833, but Bornholm isn't  presently part of the database.
 
 ### municipality
 
@@ -81,7 +82,7 @@ The table `municipality` represents the administrative and regional entity that 
 | country         | ENUM     | The daily-speak name of the country      |
 
 The current `municipality` values are:
-Aalborg
+Statsbaner (all expresshighways), Aalborg, Aero, Albertslund, Allerod, Ballerup, Billund, Brondby, Bronderslev, Dragor, Egedal, Esbjerg, Faaborg-Midtfyn, Fano, Favrskov, Faxe, Fredensborg, Frederiksberg, Frederikshavn, Frederikssund, Furerso, Gentofte, Gladsaxe, Glostrup, Greve, Gribskov, Guldborgsund, Haderslev, Halsnaes, Herlev, Hillerod, Hjorring, Hoje-Taastrup, Holbaek, Holstebro, Horsens, Horsholm, Hvidovre, Ikast-Brande, Ishoj, Jammerbugt, Kalundborg, Kobenhavn, Koge, Laeso, Langeland, Lejre, Lemvig, Lolland, Mariagerfjord, Morso, Nordfyns, Odder, Odsherred, Rebild, Ringkobing-Skjern, Rodovre, Roskilde, Rudersdal, Samso, Silkeborg, Skanderborg, Skive, Slagelse, Solrod, Sonderborg, Stevns, Struer, Svendborg, Syddjurs, Taarnby, Tonder, Vallensbaek, Varde, Vejle, Vesthimmerlands, Vordingborg
 
 The current `country` values are:
 Denmark
