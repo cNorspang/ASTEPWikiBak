@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-12-07T22:30:09.355Z
+date: 2021-12-07T22:30:22.357Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -67,7 +67,7 @@ The `base attributes` are attributes shared between all the different entities, 
 The current `source` values are:
 [vejman.dk](http://vejman.dk)
 
-The `geom` attribute is created by the `postgis` extension of the `postgresql` database, and makes it possible to save spatial data. The `geom` column therefore references a seperate table, which is created based on the type of geometry created (ie. a `POINT` type has a table with an X and Y column, whereas `POINTZ` type also has a Z column (in reality it is stored in a single column as a unique hash, but the picture can be relevant to understand the idea)).
+The `geom` attribute is created by the `postgis` extension of the `postgresql` database, and makes it possible to save spatial data. The `geom` column therefore references a seperate table, which is created based on the type of geometry created (ie. a `POINT` type has a table with an X and Y column, whereas `POINTZ` type also has a Z column (in reality it is stored in a single column as a unique hash, but the explanation can be helpful to understand the idea)).
 Each `geom` attribute also saves what type of coordinate system is used to interpret the coordinates. The coordinates from vejman are using the UTM 32 system, having SRID 25832. These can then be transformed into SRID 4326, which is the regular longitude/latitude used by most maps.
 
 ### municipality
