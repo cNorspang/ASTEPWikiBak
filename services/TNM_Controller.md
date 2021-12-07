@@ -2,7 +2,7 @@
 title: TNM Controller
 description: The controller service of TNM is responsable for calling all other services in TNM and linking it together
 published: true
-date: 2021-12-07T10:54:55.153Z
+date: 2021-12-07T10:56:53.205Z
 tags: 
 editor: markdown
 ---
@@ -11,7 +11,7 @@ editor: markdown
 
 The controller contains a static list of services and their respective URLs. These lists are used to create instances of the class *microservice*, which is later used to dynamically create UI and retrieve user preferences.
 
-### Service abstraction and validation
+## Service abstraction and validation
 Below you can see the creation of the instances of the microservices.
 ```python
 class microservice:
@@ -35,17 +35,17 @@ for idx, routerName in enumerate(routerNames):
 
 *ServiceInfoValidation()* ensures that the length of the arrays are equal, i.e. there are no weigtherNames without an URL and vice versa. It also ensures that there are no duplicate URLs, as this would indicate a copy-paste error. 
 
-**Add new weighter or router** 
+## Add new weighter or router
 To add a new weighter or router you simply has to add it to the two corresponding lists depending on whether it is a weighter or router. The index in the two lists has to match for it to be added correctly. 
 
 
-### UI creation
+## UI creation
 
 The lists of weighterServices and routerServices are used to dynamically create UI. For each element in weighterServices a JSON object of the **field type** [```input-number```](/user-interface/fields#numeric) was created with a label containing the name of the respective service. These fields are used to input the preference of weighter service.
 
 Next a dropdown menu of the **field type** ([```select```](/user-interface/fields#select(dropdown))) is created from routerServices. It is a dropdown menu, as it only makes sense to use a single routing method at one time. As before, for each element in routerServices an element is added to the dropdown menu. 
 
-### Visualise Result
+## Visualise Result
 
 Once the user clicks "visualise results", it runs the *render()* function. 
 
