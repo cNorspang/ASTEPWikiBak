@@ -2,7 +2,7 @@
 title: Greedy Routing
 description: Naive "shortest" path routing service
 published: true
-date: 2021-12-07T10:23:54.469Z
+date: 2021-12-07T10:27:29.992Z
 tags: routing, tnm
 editor: markdown
 ---
@@ -11,7 +11,7 @@ editor: markdown
 **Greedy Routing** is a service for finding a path between two nodes in a weighted graph, using a greedy approach for searchin through the graph. 
 
 # Details
-The service uses a naive greedy search algorithm to navigate the given graph, in an attempt to find a short path from the start node to the goal node. The given graph is searched by always following the lowest cost edge in the frontier until the goal node is found, after which the path is found by going back through each node and its parent node and adding it to a path list until the start node is reached, subsequently the path list is reversed, such that the path starts at the start node and ends at the goal node.
+The service uses a naive greedy search algorithm to navigate the given graph, in an attempt to find a short path from the start node to the goal node. The given graph is searched by always following the lowest cost edge in the frontier until the goal node is found, after which the path is found by iteratively going back through the node's parent nodes and adding it to a path list until the start node is reached, subsequently the path list is reversed, such that the path starts at the start node and ends at the goal node.
 
 # Input
 The service uses the HTTP content-type: ***application/json***, followed by the JSON input in the request body as the input data. The input data should be posted to the ***/data**1* endpoint to use the service. The different input data used by the service are the following:
