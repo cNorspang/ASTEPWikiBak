@@ -2,7 +2,7 @@
 title: Greedy Routing
 description: Naive "shortest" path routing service
 published: true
-date: 2021-12-08T09:37:42.013Z
+date: 2021-12-08T09:38:33.872Z
 tags: routing, tnm
 editor: markdown
 ---
@@ -22,7 +22,7 @@ The service uses the HTTP content-type: ***application/json***, followed by the 
 The input JSON should encompass these three fields as such:
 ``` JSON
 {
-"graph": <graph model>,
+	"graph": <graph model>,
 	"start_node": <integer>,
   "goal_node": <integer>
 }
@@ -32,7 +32,7 @@ The input JSON should encompass these three fields as such:
 The field '*graph*' encompasses the weighted search graph in the field '*nodes*', along with some other fields such as '*meta_data*' or '*vehicle*'. The field should follow the format stated in [RFC0020](https://wiki.astep-dev.cs.aau.dk/rfc/0020). An example of what the field '*graph*' could look like can be seen below.
 ``` JSON
 {
-"graph": {
+	"graph": {
   	"nodes": {
     	"1": {
       	"from_node_id": 1,
