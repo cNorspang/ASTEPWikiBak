@@ -2,7 +2,7 @@
 title: Greedy Routing
 description: Naive "shortest" path routing service
 published: true
-date: 2021-12-08T09:19:53.878Z
+date: 2021-12-08T09:32:54.562Z
 tags: routing, tnm
 editor: markdown
 ---
