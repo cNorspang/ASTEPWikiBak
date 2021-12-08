@@ -2,7 +2,7 @@
 title: Greedy Routing
 description: Naive "shortest" path routing service
 published: true
-date: 2021-12-08T09:32:54.562Z
+date: 2021-12-08T09:33:27.867Z
 tags: routing, tnm
 editor: markdown
 ---
@@ -22,9 +22,9 @@ The service uses the HTTP content-type: ***application/json***, followed by the 
 The input JSON should encompass these three fields as such:
 ``` JSON
 {
-	"graph": <graph model>,
-  "start_node": <integer>,
-  "goal_node": <integer>
+		"graph": <graph model>,
+  	"start_node": <integer>,
+  	"goal_node": <integer>
 }
 ```
 
