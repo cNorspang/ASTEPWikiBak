@@ -2,7 +2,7 @@
 title: Services
 description: This page lists the documentation pages for the aSTEP services, as well as code libraries used by these services.
 published: true
-date: 2021-12-08T08:11:54.388Z
+date: 2021-12-08T10:44:32.377Z
 tags: 
 editor: markdown
 ---
@@ -68,6 +68,7 @@ Service names are followed by their year of creation enclosed in parentheses. Th
 - [Streaming Service Connector](/services/StreamingServiceConnector) (2020 Spring)
 - [Wind Speed Predictor](/services/WInd_Speed_Predictor) (2021 Fall)
 -	[Crude Oil Prediction](/services/CrudeOilPrediction) (2021 Fall)
+-	[Electricity Price Predictor](/services/ElectricityPricePredictor) (2021 Fall)
 
 ### Speech Analytics
 - [Echelon](echelon) (2019)
