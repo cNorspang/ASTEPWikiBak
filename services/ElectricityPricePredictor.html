@@ -2,16 +2,17 @@
 title: Electricity Price Predictor
 description: A microservice to predict electricity prices
 published: true
-date: 2021-11-24T10:07:03.217Z
+date: 2021-12-08T09:35:15.259Z
 tags: 
 editor: ckeditor
 -->
 
 <h1>Electricity Price Predictor</h1>
-<p>The microservice was created in 2021 by cs-21-sw-5-08. In order to predict electrictricity prices using the microservice, the user will have to upload a CSV file with data formatted in the correct way as seen in here LINK.<br>The microservice can predict up to X days, and the user can choose between multiple prediction methods such as SARIMAX, ARIMA.</p>
+<p>The microservice was created in 2021 by cs-21-sw-5-08. In order to predict electrictricity prices using the microservice, the user will have to upload a CSV file with data formatted in the correct way as seen in here LINK. If a CSV file is not uploaded, the user can predict electricity prices by using the default dataset.<br>Users can choose between multiple prediction methods such as SARIMAX, ARIMA.</p>
 <p>&nbsp;</p>
 <h2>Current Status</h2>
-<p>&nbsp;</p>
+<p>The microservice is fully functional, but has room for improvement.&nbsp;</p>
+<p>The microservice can predict electricity prices within a user specified interval, however the recommended prediction is with 24 hours, as predictions later than that will be predicted using predicted data. This could be something to look at in future semesters as the output looks the same after 24 hours.&nbsp;<br><br>Furthermore even more exogenous variables could be added in order to get a more precise result.&nbsp;<br>Another improvement could be to implement more models or improve the excisting once.&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <h2>Inner Workings</h2>
@@ -21,7 +22,7 @@ editor: ckeditor
 <p>The <a href="www.sqlalchemy.org">SQLAlchemy </a>ORM was used to establish connection to the aSTEP database. &nbsp;</p>
 <p>&nbsp;</p>
 <h2>History</h2>
-<p>&nbsp;</p>
+<p>Group 8 (Fall 2021)<br>The group was the creators of the service. They implemented a SARIMAX model and ARIMA model, and made it possible to upload a CSV file as input for the predictions.<br>The group have implemented six different exogenous variables to the models. (windspeed, oil price, coal price, morning spike, evening spike, night down).&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
