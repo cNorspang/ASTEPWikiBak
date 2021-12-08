@@ -2,7 +2,7 @@
 title: Greedy Routing
 description: Naive "shortest" path routing service
 published: true
-date: 2021-12-08T09:47:27.754Z
+date: 2021-12-08T10:03:51.766Z
 tags: routing, tnm
 editor: markdown
 ---
@@ -40,7 +40,7 @@ The field '*graph*' encompasses the weighted search graph in the field '*nodes*'
         "data": {
         	"longitude": 42.1,
           "latitude": 32.3
-       	},
+        },
         "edges":{
         	"52": {
           	"id": 52,
