@@ -2,7 +2,7 @@
 title: Services
 description: This page lists the documentation pages for the aSTEP services, as well as code libraries used by these services.
 published: true
-date: 2021-12-08T08:10:07.056Z
+date: 2021-12-08T08:11:54.388Z
 tags: 
 editor: markdown
 ---
@@ -31,16 +31,16 @@ Service names are followed by their year of creation enclosed in parentheses. Th
 ### Transportation Network (RFC 0020)
 - [Creator](/services/TNM_Creator_Genesis) (2021)
 - [Controller](/en/services/TNM_Controller) (2021)
-- [Combiner Weights](/services/TNM_Combiner_WeightCombiner) (2021)
-- [Weighter Heavy Traffic](/services/TNM_Weighter_HeavyTraffic) (2021)
-- [Weighter Naive Length](/services/TNM_Weighter_NaiveLength) (2021)
-- [Weighter Naive Time](/services/naive_time_weighter) (2021)
-- [Combiner Enhancers](/services/TNM_Combiner_EnhancerCombiner) (2021)
-- [Enhancer Fill With Mean](/services/TNM_Weighter_FillWithMean) (2021)
-- [Router ViaFuelStations](/services/TNM_Router_ViaFuelStation) (2021)
-- [Router solving traveling salesman](/services/Traveling_salesmen) (2021)
-- [Router using Dijkstra](/services/Dijkstra_routing) (2021)
-- [Router using Naive Greedy search](/services/Greedy_routing) (2021)
+- [Combiner - Weights](/services/TNM_Combiner_WeightCombiner) (2021)
+- [Combiner - Enhancers](/services/TNM_Combiner_EnhancerCombiner) (2021)
+- [Weighter - Heavy Traffic](/services/TNM_Weighter_HeavyTraffic) (2021)
+- [Weighter - Naive Length](/services/TNM_Weighter_NaiveLength) (2021)
+- [Weighter - Naive Time](/services/naive_time_weighter) (2021)
+- [Enhancer - Fill With Mean](/services/TNM_Weighter_FillWithMean) (2021)
+- [Router - ViaFuelStations](/services/TNM_Router_ViaFuelStation) (2021)
+- [Router - Traveling salesman](/services/Traveling_salesmen) (2021)
+- [Router - Dijkstra](/services/Dijkstra_routing) (2021)
+- [Router - Naive Greedy search](/services/Greedy_routing) (2021)
 
 
 
