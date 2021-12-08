@@ -2,7 +2,7 @@
 title: Greedy Routing
 description: Naive "shortest" path routing service
 published: true
-date: 2021-12-08T09:33:27.867Z
+date: 2021-12-08T09:34:49.972Z
 tags: routing, tnm
 editor: markdown
 ---
@@ -32,36 +32,36 @@ The input JSON should encompass these three fields as such:
 The field '*graph*' encompasses the weighted search graph in the field '*nodes*', along with some other fields such as '*meta_data*' or '*vehicle*'. The field should follow the format stated in [RFC0020](https://wiki.astep-dev.cs.aau.dk/rfc/0020). An example of what the field '*graph*' could look like can be seen below.
 ``` JSON
 {
-	"graph": {
-    "nodes": {
-    	"1": {
-      	"from_node_id": 1,
-        "weight": 0.0,
-        "data": {
-        	"longitude": 42.1,
-          "latitude": 32.3
-        },
-        "edges":{
-        	"52": {
-          	"id": 52,
-            "from_node_id": 1,
-            "to_node_id": 2,
-            "weight": 0.4,
-            "data": {
-            	"length": 104,
-              "mean_speed": 65
+    "graph": {
+        "nodes": {
+            "1": {
+                "from_node_id": 1,
+                "weight": 0.0,
+                "data": {
+                    "longitude": 42.1,
+                    "latitude": 32.3
+                },
+                "edges":{
+                    "52": {
+                        "id": 52,
+                        "from_node_id": 1,
+                        "to_node_id": 2,
+                        "weight": 0.4,
+                        "data": {
+                            "length": 104,
+                            "mean_speed": 65
+                        }
+                    },
+                    "53": {
+                      ...
+                    }
+                }
+            },
+            "2": {
+              ...
             }
-          },
-          "53": {
-          	...
-          }
         }
-      },
-      "2": {
-      	...
-      }
     }
-  }
 }
 ```
 
