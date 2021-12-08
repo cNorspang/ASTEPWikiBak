@@ -2,7 +2,7 @@
 title: Services
 description: This page lists the documentation pages for the aSTEP services, as well as code libraries used by these services.
 published: true
-date: 2021-12-06T09:18:25.293Z
+date: 2021-12-08T08:08:52.106Z
 tags: 
 editor: markdown
 ---
@@ -40,6 +40,7 @@ Service names are followed by their year of creation enclosed in parentheses. Th
 - [Router ViaFuelStations](/services/TNM_Router_ViaFuelStation) (2021)
 - [Router solving traveling salesman](/services/Traveling_salesmen) (2021)
 - [Router with Dijkstra](/services/Dijkstra_routing) (2021)
+- [Router Naive Greedy](/services/Greedy_routing) (2021)
 
 
 
