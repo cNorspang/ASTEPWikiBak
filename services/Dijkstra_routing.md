@@ -2,7 +2,7 @@
 title: Dijkstra Routing
 description: Shortest path routing service
 published: true
-date: 2021-12-07T10:26:36.702Z
+date: 2021-12-08T09:19:15.468Z
 tags: routing, tnm, dijkstra
 editor: markdown
 ---
@@ -22,11 +22,9 @@ The service uses the HTTP content-type: ***application/json***, followed by the 
 The input JSON should encompass these three fields as such:
 ``` JSON
 {
-	"graph": {
-  	...
-  },
-  "start_node": 1,
-  "goal_node": 2
+	"graph": <graph model>,
+  "start_node": <integer>,
+  "goal_node": <integer>
 }
 ```
 
