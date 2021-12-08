@@ -2,7 +2,7 @@
 title: Wind Speed Predictor
 description: This micro service predicts the wind speed on an hourly basis for a set number of time steps ahead in time.
 published: true
-date: 2021-12-02T09:43:42.367Z
+date: 2021-12-08T10:30:53.200Z
 tags: service, microservice, time-series, timeseries, time series, 2021, f21
 editor: markdown
 ---
@@ -10,20 +10,15 @@ editor: markdown
 # Wind Speed Predictor
 The goal of implementing a windspeed predictor was to assist other groups using wind speed as a parameter in their models. This semester two other groups wants to use the data for prediction of [electricity pricing](url) and [fuel pricing](url) however, other groups in the Intellegent Transportation cluster also saw use in this, as one group predicts the best bicycle route dependent on the wind.
 The service predicts the wind speed on an hourly basis based on data from either a user provided CSV file or data from the aSTEP database.
+The library model allows the user to add more data than only wind, such that multiple parameters is considered.
 
-
-Introduction to the service. Who made it in the first place and when was it made? Why was it made (what is the "context" of the service) and what does it do? This should be more in-depth than in the user documentation.
+It was initially created by the group 5 of the fall 2021 semester.
 
 ## Current status
 The service is fully running, but the models are not accurate to a satisfiable degree. Therefore, furture semesters could focus on increasing the accuracy of the current model.
 Another improvement would be to add more models to the service, such that the user can decide and compare what models fits their use the best.
-For now the ARMA model only takes 2 parameters into account; wind speed and humidity. This should be expanded upon such that all varying factors are taken into account.
-An overview of the service's capabilities, problems/bugs, future works, status of codebase, etc. How is this service linked to other services?
-
-
-What do the user-mode and developer-mode fields signify and how do they relate to the inner workings of the system?
-What kind of data should be inputted and when?
-What kinds of output is supported and what are these outputs? Show some example inputs to the developer fields if necessary.
+For now the ARMA model can take any amount of parameters into account using the `exog` parameter, however accuracy of the model shows room for improvement. Future developers should play around with different parameters and find the best fit.
+The output of the model should be improved such that it fits the other time-series and maybe intellegent transport groups better. Future developers might even wanna make it an option to model the output to the users need
 
 ## Inner workings
 
@@ -35,18 +30,9 @@ The weather data is taken from the [DMI API](https://dmiapi.govcloud.dk/#!/) and
 **Languages:**
 Python (service)
 C# (database ingestion)
-
-This should be a developer oriented guide. Link to the service's GitLab repository.
-What programming language, frameworks, and libraries are used?
-
-Mention all the things important to gain an understanding of the system.
-What algorithms are used? What are the core principles? What are the important classes/structures? How does the system architecture look? How does the service communicate with other parties?
+GraphQL (database queries)
 
 ## History
-The following (level 3) sections should describe the history of and changes made to the service thoughout various semesters. That is, document how different project groups have contributed to the service during different semesters.
-
-NOTE: It does not matter whether the newest or oldest semester is mentioned first. The semesters must be ordered though.
-
 ### Group 5 (fall 2021)
 The initial creation of the service. The service is fully running, but the models are not accurate to a satisfiable degree. Therefore, furture semesters could focus on increasing the accuracy of the current model.
 Another improvement would be to add more models to the service, such that the user can decide and compare what models fits their use the best.
