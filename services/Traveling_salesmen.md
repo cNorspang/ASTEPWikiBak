@@ -2,7 +2,7 @@
 title: Traveling salesman 
 description: Two services used to solve the traveling salveman problem
 published: true
-date: 2021-12-09T13:07:50.132Z
+date: 2021-12-09T13:08:04.117Z
 tags: 
 editor: markdown
 ---
@@ -129,7 +129,7 @@ The service can be called by sending a **POST** request to **/prune** of this se
 
 ### Running the service locally
 First of you have to download the repository from [Gitlab](https://daisy-git.cs.aau.dk/astep-2021/group-11/tsp-modelcreator) and have docker installed on your system. You can also run the service without docker, but do yourself a service and start using docker. After downloading the repository enter it and write the following command:
-- 'docker build --tag name'
+- `docker build --tag name`
 
 
 ## Solving the traveling salesman problem
