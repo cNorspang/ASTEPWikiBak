@@ -2,7 +2,7 @@
 title: Traveling salesman 
 description: Two services used to solve the traveling salveman problem
 published: true
-date: 2021-12-09T13:25:52.073Z
+date: 2021-12-09T13:32:01.612Z
 tags: 
 editor: markdown
 ---
@@ -151,3 +151,16 @@ Since it is heuristic solutions, the optimal solutions may not be found, but the
 
 ### Calling the service
 The service can be called by sending a **POST** to either **/tsp_random**, **/nearest_neighbor** or **/two_opt**. When the service is called, a route is found using the algorithm specified in the three possible endpoints. Based on what edges are taken in the route, the nodes that are actually visited are saved as a list, and returned. So if an edge consists of 3 nodes, as is the case for edge "1" and "2" in the above JSON, the three nodes will be listed. The output therefore consists of the order and all the nodes that are visited. 
+
+### Running the service locally
+First of you have to download the repository from [Gitlab](https://daisy-git.cs.aau.dk/astep-2021/group-11/tsp-mc) and have docker installed on your system. You can also run the service without docker, but do yourself a service and start using docker. After downloading the repository enter it and write the following command:
+- `docker build --tag name`
+
+**name = filename of built image, so change it to whatever suits your needs**
+This will build an image according to the specifications of the "Dockerfile" inside the folder. When the image has been build succesfully, it is time to run it with the following command:
+- `docker run -p 5001:5000 name`
+**If you also are running the service from above at the same time, you should use a different port than 5001 to avoid problems**
+The "-p" option tells docker to map port 5001 on your computer to port 5000 inside the docker image. This is relevant since the code of this service is specified to listen to port 5000. This also means that we can see our service if we visit:
+- `localhost:5001/`
+
+To use the service send a post request to `localhost:5001/tsp_random`, `localhost:5001/two_opt` or `localhost:5001/nearest_neighbor` depending on how you would like to solve the traveling salesman problem. The post request should contain the output from the service described in the top of this page. I would recommend the tool `postman` for this process, and if the input was correct the service will return a route.
