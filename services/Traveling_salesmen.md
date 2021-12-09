@@ -2,7 +2,7 @@
 title: Traveling salesman 
 description: Two services used to solve the traveling salveman problem
 published: true
-date: 2021-12-06T11:53:15.463Z
+date: 2021-12-09T13:00:07.701Z
 tags: 
 editor: markdown
 ---
@@ -126,6 +126,9 @@ As can be seen in the example, a lot of coordinate data is saved. The reason for
 ### Calling the service
 The service can be called by sending a **POST** request to **/prune** of this service. Here the contents of the post request should of course match what was described above in the input section.
 
+
+### Running the service locally
+First of you have to download the repository from gitlab{www.google.com}
 
 
 ## Solving the traveling salesman problem
