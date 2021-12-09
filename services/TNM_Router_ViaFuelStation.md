@@ -2,7 +2,7 @@
 title: TNM Router ViaFuelStation
 description: 
 published: true
-date: 2021-12-09T07:32:15.070Z
+date: 2021-12-09T07:35:27.906Z
 tags: 
 editor: markdown
 ---
@@ -13,7 +13,7 @@ The **TNM Router ViaFuelStation** is a router that takes into count, whether the
 The code is available on [Gitlab](https://daisy-git.cs.aau.dk/astep-2021/tnmrouterviafuelstation2021).
 
 ## Content 
-- [Input](#input)
+- [Input](#Input)
 - [Output](#output)
 - [Endpoints](#endpoints)
 
