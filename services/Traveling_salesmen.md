@@ -2,7 +2,7 @@
 title: Traveling salesman 
 description: Two services used to solve the traveling salveman problem
 published: true
-date: 2021-12-09T13:00:07.701Z
+date: 2021-12-09T13:00:25.058Z
 tags: 
 editor: markdown
 ---
@@ -128,7 +128,7 @@ The service can be called by sending a **POST** request to **/prune** of this se
 
 
 ### Running the service locally
-First of you have to download the repository from gitlab{www.google.com}
+First of you have to download the repository from gitlab[www.google.com]
 
 
 ## Solving the traveling salesman problem
