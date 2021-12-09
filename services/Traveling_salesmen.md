@@ -2,7 +2,7 @@
 title: Traveling salesman 
 description: Two services used to solve the traveling salveman problem
 published: true
-date: 2021-12-09T13:08:04.117Z
+date: 2021-12-09T13:25:52.073Z
 tags: 
 editor: markdown
 ---
@@ -131,6 +131,14 @@ The service can be called by sending a **POST** request to **/prune** of this se
 First of you have to download the repository from [Gitlab](https://daisy-git.cs.aau.dk/astep-2021/group-11/tsp-modelcreator) and have docker installed on your system. You can also run the service without docker, but do yourself a service and start using docker. After downloading the repository enter it and write the following command:
 - `docker build --tag name`
 
+**name = filename of built image, so change it to whatever suits your needs**
+This will build an image according to the specifications of the "Dockerfile" inside the folder. When the image has been build succesfully, it is time to run it with the following command:
+- `docker run -p 5001:5000 name`
+
+The "-p" option tells docker to map port 5001 on your computer to port 5000 inside the docker image. This is relevant since the code of this service is specified to listen to port 5000. This also means that we can see our service if we visit:
+- `localhost:5001/`
+
+To use the service send a post request to `localhost:5001/prune` containing data that satisfies the input defined higher up on this page. I would recommend the tool `postman` for this process, and if the input was correct, the service will produce a TSP model that is returned to you.
 
 ## Solving the traveling salesman problem
 Solving the traveling salesman problem is difficult, so three algorithms using different heuristics to try to solve it have been implemented. These algorithms are all included in this service.
