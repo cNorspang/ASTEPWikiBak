@@ -2,7 +2,7 @@
 title: Weighter Heavy Traffic
 description: 
 published: true
-date: 2021-12-09T09:32:59.744Z
+date: 2021-12-09T11:03:11.925Z
 tags: tnm
 editor: markdown
 ---
@@ -23,7 +23,8 @@ The service predicts how many trucks can be expected in average on a road. This 
 The service can be trained to predict how many trucks can be expected on a given road by calling the /train endpoint. The prediction is based on features deduced from TNM data. 
 When training a model you should supply the trainer with a complete dataset (no null values) however the trainer will automatically remove edges containing null values. If an edge contains any null data it will be removed from the training set.
 
-When the service is run for the first time it contains a pre-trained model.
+The services `data` endpoint uses the model which have been trained through the `train` endpoint.
+It has a pretrained model, so it is not necessary to call the `train` endpoint.
 
 The trucks count is predicted based on a decissiontree model and converted to a weight.
 
@@ -97,7 +98,10 @@ There are examples in `test_main.py` and `test_adapter.py` in the `src/__pytest_
 
 
 ## Input
-Make a presentation of valid input to the service on json format.
+The following json describes an example of data, which could be given to the services endpoints.
+Concrete examples are in the `/tnm_example_data` folder.
+In the [TNM Service](/rfc/0020), as run from the UI, the [Controller](/services/TNM_Controller) will send the data from the [Creator](/services/TNM_Creator_Genesis) to this service.
+No matter what, if the following format is kept, the service can accept it.
 
 ```json
 {
@@ -195,102 +199,7 @@ Make a presentation of valid input to the service on json format.
 ```
 
 ## Output
-The same TNM is outputtet with annotated edge weights.
-
-```json
-{
-    "meta_data": {
-        "max_length": 3778,
-        "min_length": 1,
-        "max_slope": 24.527,
-        "min_slope": -2.407,
-        "max_legal_speed": 80,
-        "min_recommended_speed": 0,
-        "max_mean_speed": 0,
-        "min_mean_speed": 0,
-        "max_daily_year": 16138.0,
-        "min_daily_year": 57.5,
-        "max_daily_july": 14813.0,
-        "min_daily_july": 51.5,
-        "max_daily_trucks": 2472.0,
-        "min_daily_trucks": 87.0
-    },
-    "vehicle": {
-        "id": 1,
-        "name": "Fiat multipla",
-        "data": {
-            "top_speed": 150,
-            "mileage": 13204.03,
-            "max_fuel": 4.3
-        }
-    },
-    "nodes": {
-        "1": {
-            "id": 1,
-            "weight": 0.0,
-            "data": {
-                "longitude": 15.9550166585396,
-                "latitude": 57.1940874759639,
-                "country": "DK",
-                "municipality": "Aalborg",
-                "is_border": False,
-                "type": "null",
-                "signal_control": True
-            },
-            "edges": {
-                "1": {
-                    "id": 1,
-                    "from_node_id": 1,
-                    "to_node_id": 3,
-                    "weight": 0.1,
-                    "data": {
-                        "length": 162,
-                        "slope": "-1.2",
-                        "type": "lokalvej, by",
-                        "type_max_speed": "50",
-                        "set_max_speed": "50",
-                        "recommended_speed": "null",
-                        "mean_speed": "null",
-                        "daily_year": "3600",
-                        "daily_july": "300",
-                        "daily_trucks": "20",
-                        "daily_10_axle": "30",
-                        "fuel_station": False,
-                        "max_axle_load": "null",
-                        "max_height": "null",
-                        "max_length": "null",
-                        "max_weight": "null"
-                    }
-                },
-                "2": {
-                    "id": 2,
-                    "from_node_id": 1,
-                    "to_node_id": 3,
-                    "weight": 0.33,
-                    "data": {
-                        "length": 151,
-                        "slope": "null",
-                        "type": "null",
-                        "type_max_speed": "null",
-                        "set_max_speed": "null",
-                        "recommended_speed": "null",
-                        "mean_speed": "null",
-                        "daily_year": "null",
-                        "daily_july": "null",
-                        "daily_trucks": "null",
-                        "daily_10_axle": "null",
-                        "fuel_station": False,
-                        "max_axle_load": "null",
-                        "max_height": "null",
-                        "max_length": "null",
-                        "max_weight": "null"
-                    }
-                }
-            }
-        }
-	}
-}
-```
+The exact same TNM as described in [Input](#input) is outputtet except that all edges have been annotated weights being between 0 and 1.
 
 ## Endpoints
 /info
@@ -311,6 +220,4 @@ predicts on TNM dataset
 
 /test {TNM-test-set}
 not implemented: returns model prediction accuracy
-
-
 
