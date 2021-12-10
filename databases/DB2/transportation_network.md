@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-12-10T09:53:33.744Z
+date: 2021-12-10T09:55:16.366Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -89,7 +89,7 @@ Denmark
 
 ### road
 
-The table `road` represents a single unbroken road inside a `municipality`. The `road` contains all the [mileage_posts](#mileage_post) which runs along its path, and is the most detailed. The distance between two `mileage_posts` are the smallest distance representation of what is present in [vejman.dk](http://vejman.dk).
+The table `road` represents a single unbroken road inside a `municipality`. The `road` contains all the [mileage_posts](#mileage_post) which runs along its path. The distance between two `mileage_posts` are the smallest distance representation of what is present in [vejman.dk](http://vejman.dk).
 
 | **Column Name** | **Type** | Explanation                             |
 | --------------- | -------- | ----------------------------             |
