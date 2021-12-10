@@ -2,7 +2,7 @@
 title: Traveling salesman 
 description: Two services used to solve the traveling salveman problem
 published: true
-date: 2021-12-09T13:32:39.828Z
+date: 2021-12-10T12:27:01.816Z
 tags: 
 editor: markdown
 ---
@@ -129,7 +129,7 @@ The service can be called by sending a **POST** request to **/prune** of this se
 
 ### Running the service locally
 First of you have to download the repository from [Gitlab](https://daisy-git.cs.aau.dk/astep-2021/group-11/tsp-modelcreator) and have docker installed on your system. You can also run the service without docker, but do yourself a service and start using docker. After downloading the repository enter it and write the following command:
-- `docker build --tag name`
+- `docker build --tag name .`
 
 **name = filename of built image, so change it to whatever suits your needs**
 This will build an image according to the specifications of the "Dockerfile" inside the folder. When the image has been build succesfully, it is time to run it with the following command:
@@ -154,7 +154,7 @@ The service can be called by sending a **POST** to either **/tsp_random**, **/ne
 
 ### Running the service locally
 First of you have to download the repository from [Gitlab](https://daisy-git.cs.aau.dk/astep-2021/group-11/tsp-mc) and have docker installed on your system. You can also run the service without docker, but do yourself a service and start using docker. After downloading the repository enter it and write the following command:
-- `docker build --tag name`
+- `docker build --tag name .`
 
 **name = filename of built image, so change it to whatever suits your needs**
 This will build an image according to the specifications of the "Dockerfile" inside the folder. When the image has been build succesfully, it is time to run it with the following command:
