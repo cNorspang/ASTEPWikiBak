@@ -2,7 +2,7 @@
 title: Dijkstra Routing
 description: Shortest path routing service
 published: true
-date: 2021-12-10T08:28:44.304Z
+date: 2021-12-10T12:26:14.554Z
 tags: routing, tnm, dijkstra
 editor: markdown
 ---
@@ -136,7 +136,7 @@ If no path was found in the routing service, the service returns the model with 
 
 ## Running the service locally
 First of you have to download the repository from [Gitlab](https://daisy-git.cs.aau.dk/astep-2021/group-11/dijkstrarouter) and have docker installed on your system. You can also run the service without docker, but do yourself a service and start using docker. After downloading the repository enter it and write the following command:
-- `docker build --tag name`
+- `docker build --tag name .`
 
 **name = filename of built image, so change it to whatever suits your needs**
 This will build an image according to the specifications of the "Dockerfile" inside the folder. When the image has been build succesfully, it is time to run it with the following command:
