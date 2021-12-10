@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-12-07T22:35:27.723Z
+date: 2021-12-10T08:31:06.893Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -110,7 +110,7 @@ The table `intersection` describes areas where two or more roads intersect.
 | signal_control  | BOOL     | Whether the intersection has signal control |
 
 The current intersections `type` values are:
-TO BE DONE
+regular, roundabout, driveway, drivein, other, railway, ramp
 
 ### segment
 
