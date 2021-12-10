@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-12-10T09:52:24.181Z
+date: 2021-12-10T09:53:19.260Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -50,7 +50,7 @@ The datatypes should be self explanatory, however, there are two exceptions.
 - The MULTI data type references the [base attributes](#base-atributes). Since it is used in all entities, it is described seperatly in its own [section](#base-attributes).
 - The ENUM data type is just a simple STRING datatype, with the added caveat that there is a condition as to what values the string can be, described below the given table.
 
->Presently, no table contain any temporal data. All attributes should be ForeignKeys to their own table, where the data could change based on the ongoing time. This was however not implemented, due to time constraints.
+>Presently, no table contain any temporal data. All attributes should be ForeignKeys to their own table, where the data could change at different times (The amount of traffic would be different from 2019 to 2020 for example). This was however not implemented, due to time constraints.
 {.is-info}
 
 ### base attributes
