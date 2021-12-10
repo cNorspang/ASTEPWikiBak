@@ -2,37 +2,37 @@
 title: Dijkstra Routing
 description: Shortest path routing service
 published: true
-date: 2021-12-08T09:19:15.468Z
+date: 2021-12-10T07:45:32.304Z
 tags: routing, tnm, dijkstra
 editor: markdown
 ---
 
 # Dijkstra Routing
-**Dijkstra Routing** is a service for finding the shortest path between two nodes in a weighted graph, using Dijkstra's algorithm. 
+**Dijkstra Routing** is a service for finding the shortest path between two nodes in a weighted graph based on the model presented in [RFC0020](https://wiki.astep-dev.cs.aau.dk/rfc/0020), using Dijkstra's algorithm. 
 
 # Details
 The service uses [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm) to navigate the given graph, in an attempt to find the shortest path from the start node to the goal node. The given graph is searched until the shortest path to the goal node is found, after which the path is found by iteratively going back through the node's parent nodes and adding it to a path list until the start node is reached, subsequently the path list is reversed, such that the path starts at the start node and ends at the goal node.
 
 # Input
 The service uses the HTTP content-type: ***application/json***, followed by the JSON input in the request body as the input data. The input data should be posted to the ***/data*** endpoint to use the service. The different input data used by the service are the following:
-- [graph](#graph)
+- [model](#model)
 - [start_node](#start_node)
-- [goal_node](#goal_node)
+- [goal_nodes](#goal_nodes)
 
 The input JSON should encompass these three fields as such:
 ``` JSON
 {
-	"graph": <graph model>,
+	"model": <graph model>,
   "start_node": <integer>,
-  "goal_node": <integer>
+  "goal_nodes": [<integer>]
 }
 ```
 
-### graph {#graph}
-The field '*graph*' encompasses the weighted search graph in the field '*nodes*', along with some other fields such as '*meta_data*' or '*vehicle*'. The field should follow the format stated in [RFC0020](https://wiki.astep-dev.cs.aau.dk/rfc/0020). An example of what the field '*graph*' could look like can be seen below.
+### model {#model}
+The field '*model*' encompasses the weighted search graph in the field '*nodes*', along with some other fields such as '*meta_data*' or '*vehicle*'. The field should follow the format stated in [RFC0020](https://wiki.astep-dev.cs.aau.dk/rfc/0020). An example of what the field '*model*' could look like can be seen below.
 ``` JSON
 {
-	"graph": {
+	"model": {
     "nodes": {
     	"1": {
       	"from_node_id": 1,
@@ -73,11 +73,11 @@ The field '*start_node*' contains the ID of the node which should be the startin
 }
 ```
 
-### goal_node {#goal_node}
-The field '*goal_node*' contains the ID of the node which should be the goal node of the search. An example of the field can be seen below.
+### goal_nodes {#goal_nodes}
+The field '*goal_node*' contains an array of the IDs of the nodes which should be the goal nodes of the search, though the router only finds the path to the first element in the array, so more than one goal node is not possible. An example of the field can be seen below.
 ``` JSON
 {
-	"goal_node": 3
+	"goal_nodes": [3]
 }
 ```
 
@@ -86,7 +86,7 @@ The service outputs a modified version of the content received in the *graph*' f
 The field '*start_node*' contains the ID of the node which should be the starting node of the search. An example of the field can be seen below.
 ``` JSON
 {
-	"graph": {
+	"model": {
   	"meta_data": {
     	"last_service": "Dijkstra Routing"
     },
