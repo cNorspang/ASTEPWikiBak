@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-12-10T09:58:57.235Z
+date: 2021-12-10T10:02:59.591Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -149,7 +149,7 @@ The current one_way values are:
 
 ### mileage_post
 
-The table `mileage_post` describes the mileage posts ('kilometreringspæle' in danish) which is alongside the `road`.
+The table `mileage_post` describes the mileage posts ('kantpæle' in danish) which are those white posts with a yellow marker in the top, which runs alongside any given `road` in Denmark. See [here](http://leverandorportal.vejdirektoratet.dk/Udbuds%20specifikke%20dokumenter/BILAG-LDV-DRI-7-9_Elementbeskrivelse-KANTP%C3%86LE-03042012.pdf) for a formal definition.
 
 | **Column Name** | **Type** | Explanation                             |
 | --------------- | -------- | ----------------------------             |
