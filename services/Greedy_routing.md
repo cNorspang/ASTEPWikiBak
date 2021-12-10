@@ -2,7 +2,7 @@
 title: Greedy Routing
 description: Naive "shortest" path routing service
 published: true
-date: 2021-12-10T08:20:59.092Z
+date: 2021-12-10T08:28:27.828Z
 tags: routing, tnm
 editor: markdown
 ---
@@ -131,6 +131,8 @@ The field '*start_node*' contains the ID of the node which should be the startin
 ```
 
 As can be seen in the example, the field '*nodes*' contains the nodes and edges used in the path. In this example the starting node is node 1, and the goal node is node 3, here node 1, goes to node 2 using edge 3 and node 2 goes to node 3 using edge 7, and because node 3 is the goal, no edge is used to move further, hence it's '*edges*' field is empty.
+
+If no path was found in the routing service, the service returns the model with the field '*nodes*' being empty.
 
 ## Running the service locally
 First of you have to download the repository from [Gitlab](https://daisy-git.cs.aau.dk/astep-2021/group-11/greedyrouter) and have docker installed on your system. You can also run the service without docker, but do yourself a service and start using docker. After downloading the repository enter it and write the following command:
