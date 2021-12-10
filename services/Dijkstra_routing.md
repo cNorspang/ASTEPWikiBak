@@ -2,7 +2,7 @@
 title: Dijkstra Routing
 description: Shortest path routing service
 published: true
-date: 2021-12-10T07:58:00.703Z
+date: 2021-12-10T08:20:15.086Z
 tags: routing, tnm, dijkstra
 editor: markdown
 ---
@@ -35,7 +35,7 @@ The field '*model*' encompasses the weighted search graph in the field '*nodes*'
 	"model": {
     "nodes": {
     	"1": {
-      	"from_node_id": 1,
+      	"id": 1,
         "weight": 0.0,
         "data": {
         	"longitude": 42.1,
@@ -92,7 +92,7 @@ The field '*start_node*' contains the ID of the node which should be the startin
     },
     "nodes": {
     	"1": {
-      	"from_node_id": 1,
+      	"id": 1,
         "weight": 0.0,
         "data": {...},
         "edges": {
@@ -106,7 +106,7 @@ The field '*start_node*' contains the ID of the node which should be the startin
         }
       },
       "2": {
-      	"from_node_id": 2,
+      	"id": 2,
         "weight": 0.0,
         "data": {...},
         "edges": {
@@ -120,7 +120,7 @@ The field '*start_node*' contains the ID of the node which should be the startin
         }
       },
       "3": {
-      	"from_node_id": 3,
+      	"id": 3,
         "weight": 0.0,
         "data": {...},
         "edges": {}
