@@ -2,7 +2,7 @@
 title: Dijkstra Routing
 description: Shortest path routing service
 published: true
-date: 2021-12-10T07:47:03.523Z
+date: 2021-12-10T07:51:31.336Z
 tags: routing, tnm, dijkstra
 editor: markdown
 ---
@@ -74,7 +74,7 @@ The field '*start_node*' contains the ID of the node which should be the startin
 ```
 
 ### goal_nodes {#goal_nodes}
-The field '*goal_node*' contains an array of the IDs of the nodes which should be the goal nodes of the search, though the router only finds the path to the first element in the array, so more than one goal node is not possible. An example of the field can be seen below.
+The field '*goal_nodes*' contains an array of the IDs of the nodes which should be the goal nodes of the search, though the router only finds the path to the first element in the array, so more than one goal node is not possible. An example of the field can be seen below.
 ``` JSON
 {
 	"goal_nodes": [3]
