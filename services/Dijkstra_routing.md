@@ -2,7 +2,7 @@
 title: Dijkstra Routing
 description: Shortest path routing service
 published: true
-date: 2021-12-10T07:45:32.304Z
+date: 2021-12-10T07:47:03.523Z
 tags: routing, tnm, dijkstra
 editor: markdown
 ---
@@ -82,7 +82,7 @@ The field '*goal_node*' contains an array of the IDs of the nodes which should b
 ```
 
 # Output
-The service outputs a modified version of the content received in the *graph*' field. When the path has been found, the service modifies the received graph such that the field '*nodes*' originally containing the search graph, not only contains the nodes and edges used in the path, from start to goal, ordered from start to goal. If the received '*graph*' field contains a *'meta_data*' field, where the field *'last_service*' field exists, the service also updates it's value with the name of this service. An example of what the output of the service could look like can be seen below.
+The service outputs a modified version of the content received in the *model*' field. When the path has been found, the service modifies the received model such that the field '*nodes*' originally containing the search graph, now only contains the nodes and edges used in the path, from start to goal, ordered from start to goal. If the received '*model*' field contains a *'meta_data*' field, where the field *'last_service*' field exists, the service also updates it's value with the name of this service. An example of what the output of the service could look like can be seen below.
 The field '*start_node*' contains the ID of the node which should be the starting node of the search. An example of the field can be seen below.
 ``` JSON
 {
