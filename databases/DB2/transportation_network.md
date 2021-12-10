@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-12-10T08:31:06.893Z
+date: 2021-12-10T09:50:33.507Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -47,7 +47,7 @@ The database contains 5 tables:
 Each table will have a short summary of its semantic meaning, then an overview of its attributes are presented. Names are written as the columns in the database, following its datatype and a short semantic explanation.
 
 The datatypes should be self explanatory, however, there are two exceptions.
-- The MULTI data type references the fact that [base attributes](#base-atributes) since it is used in all entities, it is described seperatly in its own [section](#base-attributes).
+- The MULTI data type references the [base attributes](#base-atributes). Since it is used in all entities, it is described seperatly in its own [section](#base-attributes).
 - The ENUM data type is just a simple STRING datatype, with the added caveat that there is a condition as to what values the string can be, described below the given table.
 
 >Presently, all tables only have the most recent datapoint, but since most have different data at different times, the inclusion of temporal data extension tables might be beneficial to expand on later if time allows it.
