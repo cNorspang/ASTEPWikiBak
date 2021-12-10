@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-12-10T09:55:16.366Z
+date: 2021-12-10T09:56:31.795Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -100,7 +100,7 @@ The table `road` represents a single unbroken road inside a `municipality`. The 
 
 ### intersection
 
-The table `intersection` describes areas where two or more roads intersect.
+The table `intersection` describes areas where two or more roads intersect. In this database, all `intersections` can be combined with the `segments`, giving a graph representation, where an example of this is the [TNM Service](/rfc/0020).
 
 | **Column Name** | **Type** | Explanation                             |
 | --------------- | -------- | ----------------------------             |
