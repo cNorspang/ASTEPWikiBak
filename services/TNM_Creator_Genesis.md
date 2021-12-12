@@ -2,7 +2,7 @@
 title: Creator
 description: 
 published: true
-date: 2021-11-19T23:54:20.310Z
+date: 2021-12-12T08:52:03.948Z
 tags: tnm
 editor: markdown
 ---
@@ -46,6 +46,98 @@ When a microservice introduces new data into the TNM, this file needs to be upda
                 nodes=db_handler.get_all('node')
                 )
   ```
+
+## Input
+The Creator accepts an `options` object, which is used to restrict the queries the Creator makes.
+
+```json
+{
+    "only_filled_data": <bool>,
+    "node_limit": <integer>
+}
+```
+
+## Output
+The Creator outputs a TNM, as described in [RFC0020](/rfc/0020).
+
+```json
+{
+    "meta_data": {
+        "max_length": <int>,
+        "min_length": <int>,
+        "max_slope": <float>,
+        "min_slope": <float>,
+        "max_set_max_speed": <int>,
+        "min_recommended_speed": <int>,
+        "max_mean_speed": <float>,
+        "min_mean_speed": <float>,
+        "max_daily_year": <float>,
+        "min_daily_year": <float>,
+        "max_daily_july": <float>,
+        "min_daily_july": <float>,
+        "max_daily_trucks": <float>,
+        "min_daily_trucks": <float>
+    },
+    "vehicle": {
+        "id": <int>,
+        "name": <string>,
+        "data": {
+            "top_speed": <float>,
+            "milage": <float>,
+            "max_fuel": <float>
+        }
+    },
+    "nodes": {
+        "<int>": {
+            "id": <int>,
+            "weight": <float>,
+            "data": {
+                "longitude": <float>,
+                "latitude": <float>,
+                "country": <string>,
+                "municipality": <string>,
+                "is_border": <bool>,
+                "type": <string>,
+                "signal_control": <bool>
+            },
+            "edges": {
+                "<int>": {
+                    "id": <int>,
+                    "to_node_id": <int>,
+                    "from_node_id" : <currentNode id>,
+                    "weight": <float>,
+                    "data": {
+                        "length": <int>,
+                        "slope": <float>,
+                        "type": <string>,
+                        "type_max_speed": <int>,
+                        "set_max_speed": <int>,
+                        "recommended_speed": <int>,
+                        "mean_speed": <float>,
+                        "daily_year": <float>,
+                        "daily_july": <float>,
+                        "daily_trucks": <float>,
+                        "daily_10_axle": <float>,
+                        "fuel_station": <bool>,
+                        "max_axle_load": <float>,
+                        "max_height": <float>,
+                        "max_length": <float>,
+                        "max_weight": <float>
+                    }
+                }
+            }
+        }
+    }
+}
+```
+## Endpoints
+All endpoints can be seen in the `service.py` file.
+
+### main
+The main endpoint returns a valid TNM model as default, used in the TNM Service (RFC 0020)
+The option `only_filled_data` makes it return only edges which have filled data. This does not include `max_weight`, `max_length`, etc. and `mean_speed`, since there sadly isn't any data on those for any of the edges at all in the database.
+The option `node_limit` sets a limit for how many nodes can be taken from a query. The reason it is a node limit, is because that road segments gets "split" into a bidirectional graph, making it point in two directions. 
+
 
 ## How to run it locally
 To run the creator locally, first you have to create a postgres server on your local computer, where you activate the postgis extension to use spatial  data.
