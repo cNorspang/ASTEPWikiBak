@@ -2,7 +2,7 @@
 title: Creator
 description: 
 published: true
-date: 2021-12-13T08:36:08.979Z
+date: 2021-12-13T08:36:40.539Z
 tags: tnm
 editor: markdown
 ---
@@ -141,6 +141,7 @@ All endpoints can be seen in the `service.py` file.
 The main endpoint returns a valid TNM model as default, used in the TNM Service (RFC 0020)
 The option `only_filled_data` makes it return only edges which have filled data. This does not include `max_weight`, `max_length`, etc. and `mean_speed`, since there sadly isn't any data on those for any of the edges at all in the database.
 The option `node_limit` sets a limit for how many nodes can be taken from a query. The reason it is a node limit, is because that road segments gets "split" into a bidirectional graph, making it point in two directions. 
+The option `municipality` restricts the query to the selected municipality.
 
 
 ## How to run it locally
