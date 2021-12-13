@@ -2,7 +2,7 @@
 title: Creator
 description: 
 published: true
-date: 2021-12-12T08:52:03.948Z
+date: 2021-12-13T08:36:08.979Z
 tags: tnm
 editor: markdown
 ---
@@ -53,9 +53,13 @@ The Creator accepts an `options` object, which is used to restrict the queries t
 ```json
 {
     "only_filled_data": <bool>,
-    "node_limit": <integer>
+    "node_limit": <integer> of false
+    "municipality": <string> or false
 }
 ```
+`only_filled_data` is whether to only get the filled data or not
+`node_limit` is how many nodes one wants as a maximum (`false` means everything)
+`municipality` is the name of the municipality one wants data from (see in [transportation_network](/DB2/transportation_network) for names). If set to `false` will give all municipalities.
 
 ## Output
 The Creator outputs a TNM, as described in [RFC0020](/rfc/0020).
