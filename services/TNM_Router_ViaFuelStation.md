@@ -2,7 +2,7 @@
 title: TNM Router ViaFuelStation
 description: 
 published: true
-date: 2021-12-13T07:59:25.990Z
+date: 2021-12-13T08:30:32.519Z
 tags: 
 editor: markdown
 ---
@@ -20,7 +20,7 @@ The code is available on [Gitlab](https://daisy-git.cs.aau.dk/astep-2021/tnmrout
 ## Input
 The router expects the following attributes in json.
 - **_start_node_** : The ID of the _Node_ where the the route starts.
-- **_end_node_**: The ID of the _Node_ where the route ends.
+- **_goal_nodes_**: A list of IDs, where the first element of the list is the ID of the goal Node, the other of the list will not be looked at.
 - **_fuel_level_**: The amount of available fuel (in liters).
 - **_model_**: A [_Transport network model_](https://wiki.astep-dev.cs.aau.dk/rfc/0020).
 
@@ -31,7 +31,7 @@ The accepted _JSON_ input format:
 [
     {
         "start_node": <int>,
-        "end_node": <int>,
+        "goal_nodes": [<int>],
         "fuel_level": <float>,
         "model": {
             "meta_data": {
