@@ -2,7 +2,7 @@
 title: GitLab
 description: Gitlab stores and manages the source code of all services and deploys new versions of services to the Kubernetes Cluster.
 published: true
-date: 2021-12-17T10:57:51.666Z
+date: 2021-12-17T10:59:13.854Z
 tags: servers, service, server, gitlab, source_code
 editor: markdown
 ---
@@ -29,7 +29,7 @@ GitLab structures project repositories into "Groups", the list of which is found
 A group contains the repositories for all services/projects made that semester. A repository's structure is the usual Git-style, with a single "master" branch and zero to many development brances. 
 
 When on a group's main page, a *maintainer* or *owner* of the group may access the *Settings* menu, in which they (among other things) can configure common [environment variables](https://medium.com/chingu/an-introduction-to-environment-variables-and-how-to-use-them-f602f66d15fa) for all services in that group, as well as add GitLab Runners used to build/compile services.
-All environment variables in the GitLab pipeline should have the prefix  `K8S_SECRET`. The `K8S_SECRET` part of the environment variable will be removed in the Docker container, thus it should not be a prefix in the actual code.
+All environment variables in the GitLab pipeline should have the prefix  `K8S_SECRET_`. The `K8S_SECRET_` part of the environment variable will be removed in the Docker container, thus it should not be a prefix in the actual code.
 
 When inside a repository, a *maintainer* or *owner* may access the *Settings* menu, in which they (among other things) can configure environment variables, select the GitLab Runner to use, and enable the Container Registry (important for [deploying services](#continuous-integration-how-gitlab-deploys-services)). There are a few additional important menus in a repository:
 
