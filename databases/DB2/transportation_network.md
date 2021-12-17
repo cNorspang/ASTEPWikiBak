@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-12-17T12:08:05.493Z
+date: 2021-12-17T12:08:39.547Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -25,8 +25,6 @@ The database form the data background of the [Transport Network Model RFC0020](/
 The ER Diagram presented below describes the structure of the different entities in the transportation_network database. The concrete attributes and their meaning are defined in the [Tables](#tables) section.
 ![tnm_er_diagram.png](/database/tnm_er_diagram.png)
 *The corresponding draw io file is available [here](/database/tnm_er_diagram.drawio)*
-
-[here](/database/tnm_er_diagram.png)
 
 Apart from following standard notation of DBS, there are these important additions to make a proper presentation of a temporal spatial ER diagram, as well as some clarifications.
 - The text in the bottom of each entity describes what type of geometric information it contains as defined by postgis.(Multiline,Point...)
