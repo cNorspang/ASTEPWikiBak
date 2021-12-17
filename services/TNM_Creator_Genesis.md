@@ -2,7 +2,7 @@
 title: Creator
 description: 
 published: true
-date: 2021-12-13T08:36:40.539Z
+date: 2021-12-17T12:11:52.837Z
 tags: tnm
 editor: markdown
 ---
@@ -206,10 +206,8 @@ The creator creates a proper TNM model, but has some shortfalls which could be e
 
 - The creator does not fill the geometry of municipality, road and segment entities.
 - The creator does not verify that the algorithm described in [how relations are made](#how-relations-are-made) is fully correct. Specifically, it does not verify that a secondary road always will be visited again as a primary road later on in the dataset.
-- The creator presently only has data on Aalborg municipality. This means Aalborg and Denmark are static objects.
 - Likewise, it does not handle intersections which are bordering other municipalities.
 - Vehicle is presently a static object, but could be made into a seperate table.
 - Not all mileage_posts have a proper coordinate. An Expector service could be made to "fill out the gaps" of these, by comparing to mileage_posts closeby.
 - The database presently has no temporal data tables, which could be created instead of the present use of static information on a road segment and intersections.
-- Right now, the Creator returns all the data it can. It could be useful to choose the amount of data retrieved.
 - And many more!
