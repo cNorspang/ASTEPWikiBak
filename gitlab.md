@@ -2,7 +2,7 @@
 title: GitLab
 description: Gitlab stores and manages the source code of all services and deploys new versions of services to the Kubernetes Cluster.
 published: true
-date: 2021-12-17T10:53:28.298Z
+date: 2021-12-17T10:57:51.666Z
 tags: servers, service, server, gitlab, source_code
 editor: markdown
 ---
@@ -13,7 +13,7 @@ Sub-pages:
  - [How to make and deploy a new service](make-and-deploy-a-service)
 
 # GitLab
-> NOTE: This page reflects the state of the system at the end of the Spring 2020 semester.
+> NOTE: This page reflects the state of the system at the end of the Fall 2021 semester.
 {.is-info}
 
 In aSTEP we use "GitLab" for version management of the source code of the various aSTEP services. The projects on GitLab can be found through "https://daisy-git.cs.aau.dk/explore/groups". When you first access the GitLab page, you should create an account in there. We recommend you use your student mail for the account. Users on GitLab are separated into administrators (can do anything) and regular users (can do some things).
