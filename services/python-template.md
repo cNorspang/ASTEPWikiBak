@@ -2,7 +2,7 @@
 title: aSTEP Python Template
 description: 
 published: true
-date: 2021-12-17T14:21:38.356Z
+date: 2021-12-19T21:59:57.838Z
 tags: 
 editor: markdown
 ---
@@ -11,6 +11,8 @@ editor: markdown
 This is a template for building a microservice compatible with the aSTEP infrastructure, in which it has implemented the starting points following the RFCs approved by aSTEP.
 
 Currently, many of the RFCs are not properly documented or have confusing explanations. As such, this template tries to be as close to the idea behind the RFCs, but some work would be needed to make them fully compatible.
+## Where to get this template
+The Python TNM Template can be found at Gitlab: https://daisy-git.cs.aau.dk/astep-2021/pythontemplateservice 
 
 ## How to use
 To use this service, simply clone it onto your local computer. Then either remove the (typically hidden) `.git` file, or copy paste the code into a new folder (without the `.git` file), and create a new repository on GitLab to push the code to.
@@ -51,12 +53,20 @@ Describe what it does in such a detail, such that a person who have no context c
 ## How to run it
 ### Run local
 To run the code locally,first install docker, and then cd into the service folder, and write
+
 - `docker build --tag your_name .`
+The build command runs all tests and if the tests succeed it produces a docker image called your_name
+
 - `docker run -p 5001:5000 your_name`
+this function runs the image.
 
 The service will then run on `localhost:5001/` in your browser, as a docker container with the name your_name.
 
 ### Run on local ui
+To try the UI of this template run the UI locally:
+wiki documentation: https://wiki.astep-dev.cs.aau.dk/services/user-interface#how-to-run-the-ui-locally for the latest info.
+
+
 Git clone the userinterface-21 repo 
 ```shell
 git clone git@daisy-git.cs.aau.dk:astep-2021/userinterface-21.git
@@ -65,11 +75,13 @@ dc to the destination where you cloned the userinterface-21 repo
 start up docker desktop.
 from the terminal build the dockerimage from the Dockerfile in the repo and run it:
 ```shell
-docker build -t ui .
+docker build -t uiapp --build-arg LARAVEL_CLIENT_ID=<client> --build-arg LARAVEL_CLIENT_SECRET=<secret> .
 ```
+the CLIENT_ID and LARAVEL_CLIENT_SECRET can be found here: https://daisy-git.cs.aau.dk/astep-2020/UserInterface/-/blob/master/app/src/environments/environment.ts
+
 let the image build, then run the dockerimage:
 ```shell
-docker run -p 5002:4201 ui
+docker run -it --rm -p 5040:5000 --name my_app uiapp:latest  
 ```
 
 when the ui is running start your service:
@@ -80,10 +92,10 @@ docker run -p 5001:5000 your_name
 ```
 
 to display your service open a browser on the following url:
-- `http://localhost:5002/tool/localhost:5001/`
+- `http://localhost:5040/tool/localhost:5001/`
 
 the first part is the ui service
-- `localhost:5002/tool`
+- `localhost:5040/tool`
 
 and the last part is your service:
 - `localhost:5001/`
@@ -101,6 +113,11 @@ To add new libraries to the `requirements.txt` folder, either just add the libra
 - `pip freeze > requirements.txt`
 
 The old dependencies, as well as the new ones, should be in the new `requirements.txt` file, as well as any needed supplementary dependencies.
+
+### Add tests
+All tests will run, which are written in files named `test_some_name.py`
+All functions in those files, which have a name `test_your_function()` will run as part of the test.
+There are examples in `test_main.py` and `test_adapter.py` in the `src/__pytest__` folder. These give examples of a simple test, how to use parametrization (using the same test suite, testing with different values) and mocking (replacing dependencies, to better isolate implementation code)
 
 ## Input
 Make a presentation of valid input to the service on json format.
@@ -131,7 +148,7 @@ The default endpoint can be used to check if the service is accessible.
 ```python 
 @service.route("/")   
 def hello():
-    return "Hello aSTEP!"
+    return "Hello aSTEP! Python template service at your service"
 ```
 
 
@@ -230,7 +247,7 @@ You can add other endpoints and implement what ever functionality you'd like
 ```python
 @service.route("/dosomething", methods=['GET', 'POST'])
 def dosomething():
-    data = request.data
+    data = request.json
     if not data:
         data = json.dumps("The url was called with no arguments")
     return main(data) 
