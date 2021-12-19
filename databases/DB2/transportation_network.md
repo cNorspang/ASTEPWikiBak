@@ -2,7 +2,7 @@
 title: transportation_network
 description: 
 published: true
-date: 2021-12-17T12:08:39.547Z
+date: 2021-12-19T20:33:57.204Z
 tags: tnm, rfc0020
 editor: markdown
 ---
@@ -19,6 +19,8 @@ The `transportation_network` database is likewise managed by the [TNM Creator Mi
 The database stores all the relationsships as a description of a miniworld, containing municipalities, roads, intersections, road segments and mileage posts, as described in the [ER Diagram](#er-diagram).
 
 The database form the data background of the [Transport Network Model RFC0020](/rfc/0020), but the [TNM Creator Microservice](/services/TNM_Creator_Genesis) can be expanded to provide more and different representations of the data, if needed.
+
+As of 2021, the database contains 156525 individual road segments, and 142541 individual intersections.
 
 ## ER diagram
 
