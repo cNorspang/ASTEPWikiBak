@@ -2,9 +2,9 @@
 title: Microservice Interface Standard
 description: The interface standards define protocols used by the aSTEP user interface to integrate services into itself.
 published: true
-date: 2020-08-20T13:34:32.221Z
-tags: 
-editor: undefined
+date: 2021-12-20T08:12:06.920Z
+tags: service, interface, standard, api
+editor: markdown
 ---
 
 # Microservice Interface Standard
@@ -28,6 +28,12 @@ Below is a list of what you need to allow:
  - Origins: *any origin*.
  - Methods: `OPTIONS`, `POST`, `GET` (allowing "*any method*" is fine too).
  - Headers: `authorization`, `astep-fields-mode`.
+
+## The root route
+
+Since GitLab expects there to be a route to "/" the pipeline will fail if it is not given. Therefore, it is needed also. It is however not part of the microservice interface standard since it is not required for the UI to run the microservice.
+
+More info can be found at [How to make and deploy a new service](/gitlab/make-and-deploy-a-service)
 
 ## Input and Output Formats
 
