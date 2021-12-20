@@ -2,7 +2,7 @@
 title: Weighter Heavy Traffic
 description: 
 published: true
-date: 2021-12-09T11:03:11.925Z
+date: 2021-12-20T11:46:50.326Z
 tags: tnm
 editor: markdown
 ---
@@ -220,4 +220,8 @@ predicts on TNM dataset
 
 /test {TNM-test-set}
 not implemented: returns model prediction accuracy
+
+
+## What is missing work
+The creator creates a proper TNM model, but has some shortfalls which could be expanded upon.
 
