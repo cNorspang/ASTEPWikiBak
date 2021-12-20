@@ -2,7 +2,7 @@
 title: Weighter Heavy Traffic
 description: 
 published: true
-date: 2021-12-20T11:46:50.326Z
+date: 2021-12-20T12:04:26.801Z
 tags: tnm
 editor: markdown
 ---
@@ -223,5 +223,9 @@ not implemented: returns model prediction accuracy
 
 
 ## What is missing work
-The creator creates a proper TNM model, but has some shortfalls which could be expanded upon.
+The following items can be relevant for future works
+
+- The service presently implements a Decision Tree machine learning model used for training. It was discovered that either a Random Forest model could be used instead. This is due to the fact that Random Forest can handle null values in the dataset, of which there are many in the TNM dataset. 
+- The service also trains on data, as though it is not a graph. This is a problem, and the pandas dataframe created in the code should be expanded to also create 1st order, 2nd order, 3rd order, etc. roads, where attributes are labelled as this. By propagating data on the network out, the data could be used more places. Concretely it means looking at an edge, and see if there are data on any nearby edges (1, 2 or more nodes away) and use that data for training, with the meta information how far away they data is.
+- The service presently trains on all data. However, some (like daily_trucks and daily_year) count for instance trucks twice. It could be beneficial to see which attributes are the most saying, in the network.
 
