@@ -2,7 +2,7 @@
 title: Creator
 description: 
 published: true
-date: 2021-12-17T12:11:52.837Z
+date: 2021-12-20T11:32:56.099Z
 tags: tnm
 editor: markdown
 ---
@@ -210,4 +210,3 @@ The creator creates a proper TNM model, but has some shortfalls which could be e
 - Vehicle is presently a static object, but could be made into a seperate table.
 - Not all mileage_posts have a proper coordinate. An Expector service could be made to "fill out the gaps" of these, by comparing to mileage_posts closeby.
 - The database presently has no temporal data tables, which could be created instead of the present use of static information on a road segment and intersections.
-- And many more!
