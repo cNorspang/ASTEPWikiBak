@@ -2,7 +2,7 @@
 title: Crude Oil Prediction
 description: A microservice that predict the price of crude oil based on previous data.
 published: true
-date: 2021-12-21T12:40:09.366Z
+date: 2021-12-21T12:45:45.581Z
 tags: 
 editor: markdown
 ---
@@ -32,18 +32,18 @@ The microservice takes as input a list that needs to have a certain data structu
 
 ### Data service route
 The Data service route allows calls for the data that the models are trained on. 
-below is the different ways to call for Data service route
+Below is the different ways to call for data service route
 * /data?src/filename.csv?Sstartdate?Eenddate
 * /data?src/filename.csv?Sstartdate
 * /data?src/filename.csv?Eenddate
 
-Example request for data
+Example request for data:
 /data?src/mergedData24h.csv?S1896/01/02-00:00?E1986/01/10-00:00 
 
 ### Making a new model
 To those interested in making a new model we have provided comments in the following py-files, that explain what you have to do. The file responsible for making new models is prepross.py, eval.py can then be utilized to evalute the new model. To test predictions you can use predTest.py and finally, if you want to add a new model to our service visit prediction_backend.py. 
 
-Also, if you have multiple csv files you can use the CSV combiner to merge csv-files on the date. Note that the csv combiner might dump some data to the bottom of the excel sheet, which should be manually deleted.
+Also, if you have multiple csv files you can use the CSV combiner to merge csv-files on the date. Note that the csv combiner might dump some data to the bottom of the csv-file, which should be manually deleted.
 
 <a href="https://daisy-git.cs.aau.dk/astep-2021/cs-21-sw-5-10" target="_blank"> The GitLab project. </a>
 <a href="https://wiki.astep-dev.cs.aau.dk/services/CrudeOilPrediction" target="_blank"> The aSTEP wiki page. </a>
