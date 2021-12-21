@@ -2,7 +2,7 @@
 title: Crude Oil Prediction
 description: A microservice that predict the price of crude oil based on previous data.
 published: true
-date: 2021-12-21T12:52:32.873Z
+date: 2021-12-21T12:54:14.741Z
 tags: 
 editor: markdown
 ---
@@ -45,7 +45,7 @@ Example request for data:
 ### Making a new model
 To those interested in making a new model we have provided comments in the following py-files, that explain what you have to do. The file responsible for making new models is prepross.py, eval.py can then be utilized to evalute the new model. To test predictions you can use predTest.py and finally, if you want to add a new model to our service visit prediction_backend.py. 
 
-Also, if you have multiple csv files you can use the CSV combiner to merge csv-files on the date. Note that the csv combiner might dump some data to the bottom of the csv-file, which should be manually deleted.
+Also, if you have multiple csv files you can use the CSV combiner to merge csv-files on the date. Note that the csv combiner might dump some data to the bottom of the csv, which should be manually deleted.
 
 <a href="https://daisy-git.cs.aau.dk/astep-2021/cs-21-sw-5-10" target="_blank"> The GitLab project. </a>
 <a href="https://wiki.astep-dev.cs.aau.dk/services/CrudeOilPrediction" target="_blank"> The aSTEP wiki page. </a>
