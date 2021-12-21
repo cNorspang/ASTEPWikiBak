@@ -2,7 +2,7 @@
 title: Crude Oil Prediction
 description: A microservice that predict the price of crude oil based on previous data.
 published: true
-date: 2021-12-21T12:52:24.971Z
+date: 2021-12-21T12:52:32.873Z
 tags: 
 editor: markdown
 ---
@@ -31,7 +31,7 @@ Lastly, you can specify the amount of predictions outputted by the service. Has 
 The microservice takes as input a list that needs to have a certain data structure. There is a list that contains the oil prices in U.S. Dollar and a list which contains the dollar indexes. These lists are combined so that: data = [oilPricesList, dollarIndexesList]. The list is then made into a tensor and used on the model to predict. 
 
 ### Data service route
-The Data service route allows calls for the data that the models are trained on. 
+The data service route allows calls for the data that the models are trained on. 
 Below is the different ways to call for data service route.
 * /data?src/filename.csv?Sstartdate?Eenddate
 * /data?src/filename.csv?Sstartdate
