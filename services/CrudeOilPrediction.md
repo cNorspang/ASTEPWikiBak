@@ -2,7 +2,7 @@
 title: Crude Oil Prediction
 description: A microservice that predict the price of crude oil based on previous data.
 published: true
-date: 2021-12-21T12:45:45.581Z
+date: 2021-12-21T12:52:24.971Z
 tags: 
 editor: markdown
 ---
@@ -32,10 +32,12 @@ The microservice takes as input a list that needs to have a certain data structu
 
 ### Data service route
 The Data service route allows calls for the data that the models are trained on. 
-Below is the different ways to call for data service route
+Below is the different ways to call for data service route.
 * /data?src/filename.csv?Sstartdate?Eenddate
 * /data?src/filename.csv?Sstartdate
 * /data?src/filename.csv?Eenddate
+* filename: mergedData24h or mergedData30min
+* dateformat: year/month/day-hour:min
 
 Example request for data:
 /data?src/mergedData24h.csv?S1896/01/02-00:00?E1986/01/10-00:00 
